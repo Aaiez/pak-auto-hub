@@ -1,28 +1,30 @@
-# PakAutoHub ko apne laptop par chalana
+# GitHub ke liye tamam source code
 
-1. ZIP download karke right-click → Extract All karein.
-2. PakAutoHub_Complete_Source folder VS Code mein open karein.
-3. Terminal → New Terminal kholein.
-4. Agar Python installed hai, yeh command likhein:
+Website ki main coding HTML, CSS aur JavaScript mein hai. Car records JSON mein hain. Python ki file sirf local preview server ke liye hai; asal website browser mein JavaScript chalati hai.
 
-   py run_local.py
+## Files ka kaam
 
-5. Browser mein http://127.0.0.1:8000 khul jayega. Agar khud na khule to address manually paste karein.
-6. Terminal khula rakhein. Server band karne ke liye Ctrl+C dabayein.
+- index.html: page structure aur budget form.
+- style.css: complete design aur mobile layout.
+- app.js: company tabs, car cards, search, filters, saved cars, details aur comparison.
+- core.js: budget, price range, fuel aur shortlist formulae.
+- catalogue.json: sari gariyon ka data aur source links.
+- cars/: tamam locally available photos.
+- run_local.py: optional localhost server.
+- docs/ALL_CODE.txt: sab code ek file mein.
 
-Agar `py` command nahi chalti lekin Python installed hai, `python run_local.py` try karein.
-Agar port 8000 busy ho: `py run_local.py 8001`
-Kisi package ko pip se install karna zaroori nahi.
+## GitHub mein upload
 
-## Kis file mein kya hai?
+1. ZIP par right-click karke Extract All karein.
+2. Andar PakAutoHub_GitHub_Source folder kholein.
+3. GitHub repository mein Add file → Upload files kholein.
+4. Folder ke andar ki sari files, cars folder aur docs folder drag-and-drop karein.
+5. Commit message likh kar save/commit karein. GitHub jo commit/proposal button dikhaye use complete karein.
 
-- dist/index.html: page ka structure, budget form aur buttons.
-- dist/style.css: colours, design aur mobile layout.
-- dist/app.js: company tabs, filters, saved cars, car details aur comparison.
-- dist/core.js: budget aur fuel ke formulae.
-- dist/catalogue.json: sari gariyon ka data, prices aur source links.
-- dist/cars: downloaded car pictures.
+Asal code repository mein dikhane ke liye ZIP ke andar ka extracted code upload karein. Folder structure barqarar rakhein; cars folder ko rename karne se photo paths bhi update karni hongi.
 
-Website ka yeh latest version HTML/CSS/JavaScript par hai. Original ZIP wali Django website se alag version hai. Is mein login/admin backend nahi hai. Python sirf local preview ke liye use hota hai.
+## Laptop par chalana
 
-New photo lagane ke liye photo dist/cars mein rakhein aur us car ke image field mein cars/filename.jpg likhein. Purane model par naye model ki photo na lagayein. Kuch used-car photos abhi external links hain aur internet ke baghair load nahi hongi.
+VS Code mein poora project folder kholein. Live Server se index.html khol sakte hain. Python installed ho to terminal mein `py run_local.py` bhi chala sakte hain. Browser address http://127.0.0.1:8000 hai. Kisi Python package ko install karne ki zaroorat nahi.
+
+Yeh current published frontend version hai. Original Django project se alag hai; uska login/admin backend is export ka hissa nahi hai. README.md mein tamam technologies aur current version ki limitations explain ki hui hain.
