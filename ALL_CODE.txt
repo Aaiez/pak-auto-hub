@@ -1,2015 +1,575 @@
-PAKAUTOHUB — COMPLETE SOURCE CODE
+PAKAUTOHUB — PHONE APP COMPLETE TEXT SOURCE
 
-HTML + CSS + JavaScript + JSON + optional Python
-Use the separate project files to run the website.
+Use the separate files to run the app. PNG/JPEG/WebP assets are included in icons/ and cars/.
 
-==============================================================================
+============================================================================
 FILE: index.html
-==============================================================================
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PakAutoHub — Find your next drive</title>
-<meta name="description" content="Explore Pakistan’s car catalogue. Compare specifications, browse variant prices and build your shortlist.">
-<link rel="stylesheet" href="style.css">
-<script defer src="core.js"></script>
-<script defer src="app.js"></script></head>
-<body>
-<header><a class="logo" href="#" aria-label="PakAutoHub home"><span class="logo-icon">P<span>↗</span></span>PakAuto<span>Hub</span><small>PAKISTAN</small></a>
-<nav aria-label="Main navigation"><a href="#catalogue" class="active">Explore cars</a><a href="#budgetPlanner">Budget finder</a><button id="navCompare">Compare <span id="compareCount">0</span></button><button id="savedNav">♡ Saved <span id="savedCount">0</span></button></nav></header>
-<main>
-<section class="hero">
-<div class="hero-copy">
-<div class="eyebrow"><span></span> YOUR NEXT CHAPTER, ON FOUR WHEELS</div>
-<h1>A better way to<br>find your <em>next drive.</em></h1>
-<p>A new hatchback or a pre-owned sedan?<br>Find what your budget can really buy.</p><a class="primary" href="#catalogue">Explore the catalogue <span>↗</span></a>
-<div class="hero-stats">
-<div><strong>19</strong><span>New & used entries</span></div>
-<div><strong>31</strong><span>Variants to explore</span></div>
-<div><strong>PKR</strong><span>Local pricing</span></div></div></div>
-<div class="hero-visual">
-<div class="round"></div><span class="backtype">SWIFT</span><img src="cars/swift.png" alt="Red Suzuki Swift" fetchpriority="high">
-<div class="feature-label"><span>THE CITY, REIMAGINED</span><strong>Suzuki Swift</strong><button data-detail="suzuki-swift">Discover the model ↗</button></div><span class="edition">THE PAKISTAN COLLECTION / 01</span></div></section>
-<section class="budget-planner" id="budgetPlanner">
-<div class="planner-intro">
-<div class="eyebrow">NEW OR USED? LET’S WORK IT OUT.</div>
-<h2>Your budget.<br>Your kind of car.</h2>
-<p>30 lakh mein new ya used?<br>Compare the purchase price and the money you’ll need to keep aside.</p><button class="preset" id="example30">Try the 30-lakh comparison ↗</button></div>
-<div class="planner-main">
-<div class="planner-inputs">
-<label>Total budget <span>PKR lakh</span>
-<input id="totalBudget" required type="number" value="30" min="1" max="1000" step="0.5"></label>
-<label>My priority<select id="priority">
-<option value="family">Family / sedan space</option>
-<option value="city">City / hatchback size</option>
-<option value="new">Prefer a new car</option>
-<option value="budget">Lowest purchase outlay</option></select></label>
-<label>Transaction allowance <span>lakh / car</span>
-<input id="fees" required type="number" value="0.5" min="0" max="100" step="0.1"></label>
-<label>Used-car repair reserve <span>lakh / car</span>
-<input id="reserve" required type="number" value="2" min="0" max="100" step="0.5"></label></div>
-<p class="input-help">Allowances are editable planning assumptions, not registration quotes or predicted repair bills. Used prices vary by city and condition.</p><button id="findBudget" class="primary">Find my options ↗</button>
-<div id="budgetResults" aria-live="polite"></div></div></section>
-<section class="catalogue" id="catalogue">
-<div class="section-heading">
-<div>
-<div class="eyebrow">FIND WHAT MOVES YOU</div>
-<h2>Explore the lineup<span>.</span></h2></div>
-<p>One place. All the details that matter.</p></div>
-<div class="brand-tabs" role="tablist" aria-label="Car company" id="brandTabs"></div>
-<div class="searchbar">
-<label class="search"><span>⌕</span>
-<input id="search" type="search" placeholder="Search a brand or model…" aria-label="Search cars"></label>
-<label>Condition<select id="condition">
-<option value="">New + used</option>
-<option value="new">New cars</option>
-<option value="used">Used cars</option></select></label>
-<label>Purchase budget (lakh)<input id="budget" type="number" min="0" max="1000" step="0.5" placeholder="Any budget"></label>
-<label>Sort by<select id="sort">
-<option value="featured">Featured</option>
-<option value="low">Price: low to high</option>
-<option value="high">Price: high to low</option>
-<option value="name">Name: A–Z</option></select></label></div>
-<div class="catalogue-toolbar">
-<div class="tabs" aria-label="Body type"><button class="selected" data-body="">All cars</button><button data-body="Hatchback">Hatchbacks</button><button data-body="Sedan">Sedans</button><button data-body="Crossover">Crossovers</button><button data-body="MPV">MPVs</button></div>
-<div class="year-filter">
-<label for="year">Model year</label>
-<select id="year">
-<option value="">All years</option></select><span id="resultCount" aria-live="polite"></span></div></div>
-<div id="savedNotice" hidden>Showing your saved cars on this browser. <button id="showAll">Show all cars</button></div>
-<div class="grid" id="cars">
-<p>Loading catalogue…</p></div>
-<p class="pricing-note">New prices: dated manufacturer snapshots. Used prices: linked asking-price samples, not guaranteed valuations or live inventory. Budget filters use the lowest purchase price, before allowances; use the budget finder for total cost.</p></section>
-<section class="confidence">
-<div><span class="number">01 /</span>
-<h3>The right model imagery</h3>
-<p>Manufacturer and representative listing photographs, with model year, source and trim differences clearly noted.</p></div>
-<div><span class="number">02 /</span>
-<h3>Details you can trace</h3>
-<p>View source links and the recorded date alongside each variant’s price and specifications.</p></div>
-<div><span class="number">03 /</span>
-<h3>Compare with clarity</h3>
-<p>Compare up to three new or used cars. Adjust asking prices, reserves and fuel assumptions to match your situation.</p></div></section></main>
-<footer><a class="logo" href="#">PakAuto<span>Hub</span></a>
-<p>A university project by Aaiez · Built for the road ahead.</p><button id="aboutBtn">About the catalogue ↗</button></footer>
-<div id="compareTray" hidden><span id="trayText"></span><button id="clearCompare">Clear</button><button class="primary" id="openCompare">Compare cars ↗</button></div>
-<dialog id="modal">
-<div class="modal-top"><span>PAKAUTOHUB / EXPLORE</span><button id="closeModal" aria-label="Close dialog">✕</button></div>
-<div id="modalContent"></div></dialog>
-<div id="toast" role="status"></div></body></html>
+============================================================================
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>PakAutoHub — Find your next drive</title><meta name="description" content="Explore Pakistan’s car catalogue. Compare specifications, browse variant prices and build your shortlist."><link rel="stylesheet" href="style.css"><script defer src="core.js"></script>
+<meta name="theme-color" content="#145a46">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PakAutoHub">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="pwa.css">
+<script defer src="pwa.js"></script>
+<script defer src="app.js"></script></head><body>
+<header><a class="logo" href="#" aria-label="PakAutoHub home"><span class="logo-icon">P<span>↗</span></span>PakAuto<span>Hub</span><small>PAKISTAN</small></a><nav aria-label="Main navigation"><a href="#catalogue" class="active">Explore cars</a><a href="#budgetPlanner">Budget finder</a><button id="navCompare">Compare <span id="compareCount">0</span></button><button id="savedNav">♡ Saved <span id="savedCount">0</span></button></nav><div class="header-tools"><span id="connectionStatus" class="connection-status" role="status">Online</span><button class="install-button" data-install><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg><span>Install app</span></button></div></header>
+<main><section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> YOUR NEXT CHAPTER, ON FOUR WHEELS</div><h1>A better way to<br>find your <em>next drive.</em></h1><p>A new hatchback or a pre-owned sedan?<br>Find what your budget can really buy.</p><a class="primary" href="#catalogue">Explore the catalogue <span>↗</span></a><div class="hero-stats"><div><strong>19</strong><span>New & used entries</span></div><div><strong>31</strong><span>Variants to explore</span></div><div><strong>PKR</strong><span>Local pricing</span></div></div></div><div class="hero-visual"><div class="round"></div><span class="backtype">SWIFT</span><img src="cars/swift.png" alt="Red Suzuki Swift" fetchpriority="high"><div class="feature-label"><span>THE CITY, REIMAGINED</span><strong>Suzuki Swift</strong><button data-detail="suzuki-swift">Discover the model ↗</button></div><span class="edition">THE PAKISTAN COLLECTION / 01</span></div></section>
+
+<section class="app-banner" id="appBanner" aria-labelledby="appBannerTitle">
+  <img src="icons/icon-192.png" alt="" width="58" height="58">
+  <div class="app-banner-copy"><h2 id="appBannerTitle">Your next drive, in your pocket.</h2><p>Add PakAutoHub to your phone. Compare cars and plan your budget, even offline.</p></div>
+  <div class="app-banner-actions"><button class="primary" data-install>Install app <span aria-hidden="true">↗</span></button><button class="text-button" data-install-help>How to install</button></div>
+</section>
+<section class="budget-planner" id="budgetPlanner"><div class="planner-intro"><div class="eyebrow">NEW OR USED? LET’S WORK IT OUT.</div><h2>Your budget.<br>Your kind of car.</h2><p>30 lakh mein new ya used?<br>Compare the purchase price and the money you’ll need to keep aside.</p><button class="preset" id="example30">Try the 30-lakh comparison ↗</button></div><div class="planner-main"><div class="planner-inputs"><label>Total budget <span>PKR lakh</span><input id="totalBudget" required type="number" value="30" min="1" max="1000" step="0.5"></label><label>My priority<select id="priority"><option value="family">Family / sedan space</option><option value="city">City / hatchback size</option><option value="new">Prefer a new car</option><option value="budget">Lowest purchase outlay</option></select></label><label>Transaction allowance <span>lakh / car</span><input id="fees" required type="number" value="0.5" min="0" max="100" step="0.1"></label><label>Used-car repair reserve <span>lakh / car</span><input id="reserve" required type="number" value="2" min="0" max="100" step="0.5"></label></div><p class="input-help">Allowances are editable planning assumptions, not registration quotes or predicted repair bills. Used prices vary by city and condition.</p><button id="findBudget" class="primary">Find my options ↗</button><div id="budgetResults" aria-live="polite"></div></div></section><section class="catalogue" id="catalogue"><div class="section-heading"><div><div class="eyebrow">FIND WHAT MOVES YOU</div><h2>Explore the lineup<span>.</span></h2></div><p>One place. All the details that matter.</p></div><div class="brand-tabs" role="tablist" aria-label="Car company" id="brandTabs"></div><div class="searchbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search a brand or model…" aria-label="Search cars"></label><label>Condition<select id="condition"><option value="">New + used</option><option value="new">New cars</option><option value="used">Used cars</option></select></label><label>Purchase budget (lakh)<input id="budget" type="number" min="0" max="1000" step="0.5" placeholder="Any budget"></label><label>Sort by<select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A–Z</option></select></label></div><div class="catalogue-toolbar"><div class="tabs" aria-label="Body type"><button class="selected" data-body="">All cars</button><button data-body="Hatchback">Hatchbacks</button><button data-body="Sedan">Sedans</button><button data-body="Crossover">Crossovers</button><button data-body="MPV">MPVs</button></div><div class="year-filter"><label for="year">Model year</label><select id="year"><option value="">All years</option></select><span id="resultCount" aria-live="polite"></span></div></div><div id="savedNotice" hidden>Showing your saved cars on this browser. <button id="showAll">Show all cars</button></div><div class="grid" id="cars"><p>Loading catalogue…</p></div><p class="pricing-note">New prices: dated manufacturer snapshots. Used prices: linked asking-price samples, not guaranteed valuations or live inventory. Budget filters use the lowest purchase price, before allowances; use the budget finder for total cost.</p></section>
+<section class="confidence"><div><span class="number">01 /</span><h3>The right model imagery</h3><p>Manufacturer and representative listing photographs, with model year, source and trim differences clearly noted.</p></div><div><span class="number">02 /</span><h3>Details you can trace</h3><p>View source links and the recorded date alongside each variant’s price and specifications.</p></div><div><span class="number">03 /</span><h3>Compare with clarity</h3><p>Compare up to three new or used cars. Adjust asking prices, reserves and fuel assumptions to match your situation.</p></div></section></main><footer><a class="logo" href="#">PakAuto<span>Hub</span></a><p>A university project by Aaiez · Built for the road ahead.</p><button data-install-help>Get the phone app ↗</button><button id="aboutBtn">About the catalogue ↗</button></footer><div id="compareTray" hidden><span id="trayText"></span><button id="clearCompare">Clear</button><button class="primary" id="openCompare">Compare cars ↗</button></div><dialog id="modal"><div class="modal-top"><span>PAKAUTOHUB / EXPLORE</span><button id="closeModal" aria-label="Close dialog">✕</button></div><div id="modalContent"></div></dialog><div id="toast" role="status"></div>
+<nav class="mobile-nav" aria-label="Phone navigation">
+  <a href="#catalogue" id="mobileCars" data-app-nav="cars" class="selected" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 2-4h10l2 4M4 9h16v9H4zM6 18v3m12-3v3M7 13h2m6 0h2"/></svg><span>Cars</span></a>
+  <a href="#budgetPlanner" id="mobileBudget" data-app-nav="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 4h2m4 0h2"/></svg><span>Budget</span></a>
+  <button id="mobileSaved" data-app-nav="saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 4c-3-3-7 0-8 2-1-2-5-5-8-2-5 5 2 11 8 16 6-5 13-11 8-16z"/></svg><span>Saved</span><span id="mobileSavedCount" class="nav-count" hidden>0</span></button>
+  <button id="mobileCompare" data-app-nav="compare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3v18m8-18v18M4 8h8m0 8h8M5 5 2 8l3 3m14 2 3 3-3 3"/></svg><span>Compare</span><span id="mobileCompareCount" class="nav-count" hidden>0</span></button>
+</nav>
+<dialog id="installDialog" class="install-dialog" aria-labelledby="installTitle">
+  <div class="modal-top"><span>PAKAUTOHUB / ON YOUR PHONE</span><button id="closeInstall" aria-label="Close installation guide">✕</button></div>
+  <div class="install-dialog-heading"><img src="icons/icon-192.png" alt="" width="64" height="64"><div><h2 id="installTitle">Take the app with you.</h2><p>One icon. Your cars, your budget.</p></div></div>
+  <div class="install-platforms" role="group" aria-label="Your phone"><button data-install-platform="android" aria-pressed="false">Android</button><button data-install-platform="ios" aria-pressed="false">iPhone</button></div>
+  <ol id="installSteps" class="install-steps"></ol>
+  <p id="installTip" class="install-tip"></p>
+  <div class="offline-info"><strong id="offlineHeading">Offline catalogue</strong><p id="offlineDescription" role="status">Open once with internet to save the catalogue on this device.</p></div>
+</dialog>
+<div id="updateBanner" class="update-banner" role="status" hidden><span>A new app version is ready.</span><button id="applyUpdate">Refresh</button></div>
+</body></html>
 
 
-==============================================================================
+============================================================================
 FILE: style.css
-==============================================================================
+============================================================================
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-:root {
-  --ink:#162d2a;
-  --green:#145a46;
-  --lime:#d4f078;
-  --muted:#75817b;
-  --line:#e1e6e1;
-  --bg:#f8faf6
-}
-* {
-  box-sizing:border-box
-}
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px
-}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'DM Sans',Arial,sans-serif;
-  font-size:14px
-}
-button,input,select {
-  font:inherit
-}
-button,a,input,select {
-  -webkit-tap-highlight-color:transparent
-}
-button,a {
-  cursor:pointer
-}
-button {
-  color:inherit
-}
-a {
-  color:inherit;
-  text-decoration:none
-}
-button {
-  border:0;
-  background:none
-}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
-  outline:3px solid #77a447;
-  outline-offset:3px
-}
-header {
-  height:88px;
-  padding:0 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid var(--line);
-  background:var(--bg)
-}
-.logo {
-  font-family:Manrope,Arial,sans-serif;
-  font-size:25px;
-  letter-spacing:-1.2px;
-  font-weight:800;
-  display:flex;
-  align-items:center
-}
-.logo>span:not(.logo-icon) {
-  color:var(--green)
-}
-.logo small {
-  font-size:8px;
-  font-weight:600;
-  letter-spacing:2px;
-  align-self:flex-end;
-  margin:0 0 5px 9px;
-  color:#7b8980
-}
-.logo-icon {
-  width:34px;
-  height:34px;
-  border-radius:8px;
-  background:var(--green);
-  color:var(--lime);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  margin-right:10px;
-  position:relative
-}
-.logo-icon span {
-  font-size:17px;
-  position:absolute;
-  right:1px;
-  top:0
-}
-nav {
-  display:flex;
-  align-items:center;
-  gap:30px;
-  font-size:13px
-}
-nav a.active {
-  font-weight:700
-}
-nav button span {
-  margin-left:5px;
-  border-radius:50%;
-  padding:3px 6px;
-  background:#e9eee7;
-  font-size:11px
-}
-nav button:last-child {
-  border:1px solid #cdd6ce;
-  border-radius:7px;
-  padding:10px 15px
-}
-.hero {
-  display:grid;
-  grid-template-columns:1fr 1.03fr;
-  min-height:535px;
-  padding:40px 6% 24px;
-  overflow:hidden
-}
-.hero-copy {
-  padding:28px 0
-}
-.eyebrow {
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.8px;
-  display:flex;
-  align-items:center;
-  gap:8px
-}
-.eyebrow>span {
-  height:7px;
-  width:7px;
-  border-radius:50%;
-  background:var(--green)
-}
-h1,h2,h3 {
-  font-family:Manrope,Arial,sans-serif
-}
-h1 {
-  font-size:clamp(38px,4.2vw,64px);
-  font-weight:800;
-  line-height:1.13;
-  letter-spacing:-2.8px;
-  margin:23px 0
-}
-h1 em {
-  font-style:normal;
-  color:var(--green)
-}
-.hero-copy>p {
-  font-size:15px;
-  color:#738077;
-  line-height:1.8
-}
-.primary {
-  border-radius:6px;
-  padding:14px 21px;
-  background:var(--green);
-  color:white;
-  display:inline-flex;
-  gap:32px;
-  align-items:center;
-  font-weight:600;
-  font-size:13px
-}
-.hero .primary {
-  margin-top:16px
-}
-.hero-stats {
-  display:flex;
-  gap:32px;
-  margin-top:39px
-}
-.hero-stats>div {
-  display:flex;
-  flex-direction:column;
-  border-right:1px solid #d8ded6;
-  padding-right:30px
-}
-.hero-stats>div:last-child {
-  border:0
-}
-.hero-stats strong {
-  font-family:Manrope;
-  font-size:23px
-}
-.hero-stats span {
-  font-size:10px;
-  color:#7a867d;
-  margin-top:5px
-}
-.hero-visual {
-  position:relative;
-  min-width:0;
-  display:flex;
-  align-items:center;
-  justify-content:center
-}
-.round {
-  position:absolute;
-  width:440px;
-  height:440px;
-  border-radius:50%;
-  background:#e9eedf;
-  right:-15px;
-  top:4px
-}
-.round:after {
-  content:'';
-  position:absolute;
-  inset:25px;
-  border:1px solid #d7dfcb;
-  border-radius:50%
-}
-.backtype {
-  position:absolute;
-  font-family:Manrope;
-  font-weight:800;
-  font-size:112px;
-  color:#d2ddc4;
-  letter-spacing:-7px;
-  top:75px;
-  right:0
-}
-.hero-visual>img {
-  position:relative;
-  z-index:1;
-  width:115%;
-  max-height:330px;
-  object-fit:contain;
-  filter:drop-shadow(0 25px 13px #263a2720);
-  margin-bottom:5px
-}
-.feature-label {
-  position:absolute;
-  bottom:26px;
-  left:38px;
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-  z-index:2
-}
-.feature-label>span {
-  font-size:8px;
-  letter-spacing:1.7px;
-  color:#677662
-}
-.feature-label strong {
-  font-family:Manrope;
-  font-size:20px
-}
-.feature-label button {
-  text-align:left;
-  padding:0;
-  font-size:11px;
-  color:var(--green)
-}
-.edition {
-  position:absolute;
-  right:0;
-  bottom:28px;
-  font-size:8px;
-  letter-spacing:1.5px;
-  color:#8c9786
-}
-.catalogue {
-  padding:48px 6% 40px;
-  background:#fff;
-  border-top:1px solid var(--line)
-}
-.section-heading {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-bottom:27px
-}
-.section-heading h2 {
-  font-size:34px;
-  letter-spacing:-1.4px;
-  margin:10px 0 0
-}
-.section-heading h2 span {
-  color:#6c9348
-}
-.section-heading>p {
-  color:#829087;
-  font-size:12px
-}
-.searchbar {
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  border:1px solid #dce3da;
-  border-radius:8px;
-  background:#fafcf8;
-  padding:13px 0;
-  gap:0
-}
-.searchbar label {
-  display:flex;
-  flex-direction:column;
-  font-size:9px;
-  letter-spacing:1px;
-  color:#6b796e;
-  padding:0 21px;
-  border-left:1px solid #e0e5dc;
-  gap:4px
-}
-.searchbar label:first-child {
-  border:0
-}
-.searchbar select {
-  border:0;
-  background:transparent;
-  color:var(--ink);
-  width:100%;
-  font-size:12px;
-  letter-spacing:0;
-  cursor:pointer;
-  padding:4px 0
-}
-.searchbar .search {
-  flex-direction:row;
-  align-items:center;
-  gap:13px
-}
-.search>span {
-  font-size:30px;
-  font-weight:400
-}
-.search input {
-  width:100%;
-  border:0;
-  background:transparent;
-  padding:10px 0;
-  outline-offset:0;
-  font-size:12px
-}
-.catalogue-toolbar {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:25px 0
-}
-.tabs {
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
-}
-.tabs button {
-  font-size:11px;
-  padding:8px 16px;
-  border:1px solid #e2e7de;
-  border-radius:30px;
-  color:#788277
-}
-.tabs .selected {
-  background:var(--ink);
-  border-color:var(--ink);
-  color:white
-}
-#resultCount {
-  font-size:11px;
-  color:#869087
-}
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:23px
-}
-.car {
-  border:1px solid #e4e9e2;
-  border-radius:10px;
-  overflow:hidden;
-  transition:box-shadow .2s,transform .2s
-}
-.car:hover {
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px #1b392610
-}
-.car-photo {
-  height:200px;
-  background:#f3f6ef;
-  position:relative;
-  padding:28px 22px 9px
-}
-.car-photo img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  mix-blend-mode:multiply;
-  transition:transform .3s
-}
-.car:hover img {
-  transform:scale(1.035)
-}
-.tag {
-  position:absolute;
-  top:15px;
-  left:15px;
-  z-index:1;
-  padding:5px 8px;
-  background:#ffffffc9;
-  border:1px solid #e0e5d8;
-  border-radius:4px;
-  font-size:8px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.8px
-}
-.heart {
-  position:absolute;
-  right:13px;
-  top:12px;
-  background:white;
-  border-radius:50%;
-  width:31px;
-  height:31px;
-  z-index:1;
-  font-size:22px;
-  line-height:1
-}
-.heart.on {
-  color:#145a46;
-  background:#dff0d6
-}
-.car-info {
-  padding:20px
-}
-.car-brand {
-  text-transform:uppercase;
-  font-size:9px;
-  letter-spacing:1.6px;
-  color:#80907e
-}
-.car-title {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:5px 0 12px
-}
-.car-title h3 {
-  font-size:23px;
-  letter-spacing:-.7px;
-  margin:0
-}
-.car-title>span {
-  font-size:9px;
-  color:#8b9588
-}
-.spec-mini {
-  display:flex;
-  gap:10px;
-  font-size:10px;
-  color:#7d8779;
-  padding-bottom:17px;
-  border-bottom:1px solid #edf0e9
-}
-.car-price {
-  margin:15px 0
-}
-.car-price small {
-  display:block;
-  color:#8b9688;
-  font-size:9px;
-  margin-bottom:4px
-}
-.car-price strong {
-  font-size:21px;
-  letter-spacing:-.5px
-}
-.car-price strong span {
-  font-size:11px;
-  letter-spacing:0;
-  font-weight:500;
-  margin-right:4px
-}
-.car-price .range {
-  font-size:10px;
-  color:#84917f;
-  margin-top:5px
-}
-.card-actions {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px
-}
-.details {
-  border:1px solid #dae2d4;
-  border-radius:5px;
-  padding:10px 12px;
-  font-size:11px;
-  flex:1;
-  text-align:left;
-  display:flex;
-  justify-content:space-between
-}
-.compare-check {
-  font-size:10px;
-  display:flex;
-  align-items:center;
-  gap:4px;
-  cursor:pointer
-}
-.compare-check input {
-  accent-color:var(--green)
-}
-.pricing-note {
-  font-size:10px;
-  color:#8a9386;
-  text-align:center;
-  line-height:1.7;
-  margin:28px 0 0
-}
-.confidence {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:45px;
-  padding:40px 6%;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line)
-}
-.number {
-  color:#8d9c81;
-  font-size:10px;
-  letter-spacing:1px
-}
-.confidence h3 {
-  font-size:15px;
-  margin:13px 0 8px
-}
-.confidence p {
-  color:#81907c;
-  font-size:12px;
-  line-height:1.8;
-  margin:0;
-  max-width:300px
-}
-footer {
-  padding:32px 6% 90px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px
-}
-footer .logo {
-  font-size:20px
-}
-footer p,footer button {
-  font-size:10px;
-  color:#82917a
-}
-#compareTray {
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:5;
-  background:var(--ink);
-  color:white;
-  box-shadow:0 7px 30px #0003;
-  border-radius:9px;
-  padding:12px 17px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  font-size:12px;
-  max-width:95%;
-  width:max-content
-}
-#compareTray[hidden] {
-  display:none
-}
-#compareTray .primary {
-  background:var(--lime);
-  color:var(--ink);
-  padding:11px 16px
-}
-#clearCompare {
-  color:#bec9bf
-}
-dialog {
-  border:0;
-  border-radius:13px;
-  max-width:1020px;
-  width:92%;
-  max-height:90vh;
-  color:var(--ink);
-  padding:25px;
-  background:#fff
-}
-dialog::backdrop {
-  background:#10231ecc;
-  backdrop-filter:blur(5px)
-}
-.modal-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:#7a8b7d;
-  font-size:9px;
-  letter-spacing:1.5px;
-  margin-bottom:20px
-}
-.modal-top button {
-  font-size:18px
-}
-.detail-hero {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center
-}
-.detail-hero img {
-  width:100%;
-  height:240px;
-  object-fit:contain;
-  background:#f5f7f1;
-  border-radius:10px
-}
-.detail-hero h2 {
-  font-size:32px;
-  letter-spacing:-1px;
-  margin:8px 0
-}
-.detail-hero p {
-  color:#73816f;
-  font-size:12px;
-  line-height:1.7
-}
-.variant-select {
-  width:100%;
-  padding:12px;
-  border:1px solid #d9e2d2;
-  border-radius:5px;
-  background:#f8faf6;
-  margin:10px 0
-}
-.detail-price {
-  font-size:29px;
-  font-weight:700;
-  margin:16px 0 7px
-}
-.source-note {
-  font-size:11px;
-  color:#74856f;
-  line-height:1.8
-}
-.source-note a {
-  text-decoration:underline;
-  color:var(--green)
-}
-.spec-table {
-  width:100%;
-  border-collapse:collapse;
-  margin:22px 0;
-  font-size:12px
-}
-.spec-table th,.spec-table td {
-  border-bottom:1px solid #e7ecdf;
-  padding:12px;
-  text-align:left;
-  vertical-align:top
-}
-.spec-table th {
-  font-weight:500;
-  color:#74846f;
-  width:27%
-}
-.spec-table tr:nth-child(even) {
-  background:#f7f9f4
-}
-.compare-scroll {
-  overflow:auto
-}
-.compare-table {
-  min-width:590px
-}
-.compare-table img {
-  height:115px;
-  width:100%;
-  object-fit:contain
-}
-.compare-table td {
-  min-width:190px
-}
-.compare-table th {
-  min-width:135px
-}
-.compare-table h3 {
-  margin:8px 0
-}
-.compare-table select {
-  max-width:230px
-}
-#toast {
-  position:fixed;
-  bottom:100px;
-  left:50%;
-  transform:translateX(-50%);
-  background:var(--ink);
-  color:white;
-  padding:12px 22px;
-  border-radius:7px;
-  opacity:0;
-  pointer-events:none;
-  z-index:20;
-  transition:opacity .2s;
-  font-size:12px
-}
-.empty {
-  grid-column:1/-1;
-  text-align:center;
-  padding:60px 20px;
-  border:1px dashed #dce3d4;
-  border-radius:9px;
-  color:#788674
-}
-.empty h3 {
-  font-size:22px;
-  color:var(--ink)
-}
-.empty button,#savedNotice button {
-  color:var(--green);
-  text-decoration:underline
-}
-.about {
-  line-height:1.9;
-  max-width:750px;
-  margin:auto
-}
-.about h2 {
-  font-size:30px
-}
-.about p {
-  color:#72836d
-}
-#savedNotice {
-  padding:12px;
-  margin-bottom:18px;
-  background:#eef5e7;
-  font-size:12px
-}
-@media(min-width:1500px) {
-  header,main,footer {
-    max-width:1600px;
-    margin:auto
-  }
-  
-}
-@media(max-width:950px) {
-  header {
-    padding:0 4%
-  }
-  .hero {
-    padding:30px 4%;
-    min-height:470px
-  }
-  .hero h1 {
-    font-size:43px
-  }
-  .round {
-    width:330px;
-    height:330px;
-    top:20px
-  }
-  .backtype {
-    font-size:85px;
-    top:90px
-  }
-  .hero-visual>img {
-    width:120%
-  }
-  .hero-stats {
-    gap:15px
-  }
-  .hero-stats>div {
-    padding-right:15px
-  }
-  .feature-label {
-    left:12px
-  }
-  .edition {
-    display:none
-  }
-  .catalogue {
-    padding:35px 4%
-  }
-  .car-photo {
-    height:160px
-  }
-  .car-info {
-    padding:15px
-  }
-  .car-price strong {
-    font-size:18px
-  }
-  .spec-mini {
-    font-size:9px;
-    gap:5px
-  }
-  .card-actions {
-    flex-wrap:wrap
-  }
-  .details {
-    flex-basis:100%
-  }
-  .grid {
-    gap:15px
-  }
-  .confidence {
-    gap:25px;
-    padding:35px 4%
-  }
-  
-}
-@media(max-width:650px) {
-  header {
-    height:72px
-  }
-  .logo {
-    font-size:20px
-  }
-  .logo small,.logo-icon {
-    display:none
-  }
-  nav {
-    gap:12px;
-    font-size:10px
-  }
-  nav button {
-    font-size:10px;
-    padding:0
-  }
-  nav button:last-child {
-    padding:8px
-  }
-  nav a {
-    display:none
-  }
-  .hero {
-    grid-template-columns:1fr;
-    padding:22px 6% 0
-  }
-  .hero-copy {
-    padding:12px 0
-  }
-  .eyebrow {
-    font-size:8px
-  }
-  h1 {
-    font-size:42px!important;
-    letter-spacing:-2px;
-    margin:18px 0
-  }
-  .hero-copy>p {
-    font-size:13px
-  }
-  .hero-stats {
-    margin-top:27px
-  }
-  .hero-stats strong {
-    font-size:20px
-  }
-  .hero-visual {
-    height:330px;
-    margin:0 -6%;
-    overflow:hidden
-  }
-  .round {
-    width:290px;
-    height:290px;
-    right:7%;
-    top:5px
-  }
-  .backtype {
-    font-size:92px;
-    top:35px;
-    right:8%
-  }
-  .hero-visual>img {
-    width:90%;
-    height:230px;
-    margin-bottom:35px
-  }
-  .feature-label {
-    bottom:18px;
-    left:8%
-  }
-  .feature-label strong {
-    font-size:17px
-  }
-  .feature-label>span {
-    font-size:7px
-  }
-  .catalogue {
-    padding:33px 5%
-  }
-  .section-heading>p {
-    display:none
-  }
-  .section-heading h2 {
-    font-size:29px
-  }
-  .searchbar {
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    padding:15px 0
-  }
-  .searchbar .search {
-    grid-column:1/-1;
-    padding-bottom:10px;
-    border-bottom:1px solid #e1e7da
-  }
-  .searchbar label {
-    padding:0 15px
-  }
-  .searchbar label:nth-child(2) {
-    border:0
-  }
-  .searchbar label:last-child {
-    grid-column:1/-1;
-    border:0;
-    border-top:1px solid #e1e7da;
-    padding-top:10px
-  }
-  .tabs {
-    gap:5px
-  }
-  .tabs button {
-    font-size:10px;
-    padding:7px 10px
-  }
-  .catalogue-toolbar {
-    gap:14px;
-    align-items:start;
-    flex-direction:column
-  }
-  .grid {
-    grid-template-columns:1fr 1fr;
-    gap:12px
-  }
-  .car-photo {
-    height:133px;
-    padding:30px 5px 8px
-  }
-  .tag {
-    font-size:6px;
-    top:10px;
-    left:9px
-  }
-  .heart {
-    width:25px;
-    height:25px;
-    right:7px;
-    top:7px;
-    font-size:18px
-  }
-  .car-info {
-    padding:12px
-  }
-  .car-title {
-    align-items:start;
-    gap:5px
-  }
-  .car-title h3 {
-    font-size:20px
-  }
-  .car-title>span {
-    font-size:8px
-  }
-  .car-brand {
-    font-size:8px
-  }
-  .spec-mini {
-    flex-direction:column;
-    gap:5px;
-    padding-bottom:10px
-  }
-  .car-price strong {
-    font-size:17px
-  }
-  .car-price strong span {
-    font-size:9px
-  }
-  .car-price .range {
-    font-size:9px
-  }
-  .details {
-    font-size:10px;
-    padding:8px
-  }
-  .confidence {
-    grid-template-columns:1fr;
-    gap:23px;
-    padding:30px 6%
-  }
-  .confidence p {
-    max-width:none
-  }
-  .confidence h3 {
-    margin:7px 0
-  }
-  footer {
-    flex-direction:column;
-    text-align:center;
-    gap:12px;
-    padding-bottom:100px
-  }
-  footer p {
-    margin:0
-  }
-  .detail-hero {
-    grid-template-columns:1fr;
-    gap:15px
-  }
-  .detail-hero img {
-    height:180px
-  }
-  dialog {
-    padding:18px;
-    width:95%
-  }
-  .detail-hero h2 {
-    font-size:26px
-  }
-  .spec-table {
-    font-size:11px
-  }
-  .spec-table th,.spec-table td {
-    padding:10px 7px
-  }
-  #compareTray {
-    gap:10px;
-    padding:10px;
-    font-size:10px
-  }
-  #compareTray .primary {
-    font-size:10px;
-    padding:10px
-  }
-  .pricing-note {
-    text-align:left
-  }
-  .compare-table {
-    min-width:580px
-  }
-  .compare-table th {
-    min-width:110px
-  }
-  
-}
-@media(prefers-reduced-motion:reduce) {
-  * {
-    scroll-behavior:auto!important;
-    transition:none!important
-  }
-  
-}
-.budget-planner {
-  display:grid;
-  grid-template-columns:1fr 1.8fr;
-  gap:50px;
-  padding:45px 6%;
-  background:#eaf1e3;
-  border-top:1px solid #d5e0cd
-}
-.planner-intro h2 {
-  font-size:34px;
-  line-height:1.2;
-  letter-spacing:-1px;
-  margin:16px 0
-}
-.planner-intro p {
-  font-size:13px;
-  color:#64755e;
-  line-height:1.8
-}
-.preset {
-  background:white;
-  border:1px solid #cbdcc2;
-  border-radius:6px;
-  padding:12px 15px;
-  margin-top:12px;
-  font-size:12px;
-  color:var(--green);
-  text-align:left
-}
-.planner-inputs {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px
-}
-.planner-inputs label {
-  font-size:11px;
-  font-weight:600
-}
-.planner-inputs label>span {
-  float:right;
-  color:#6c7d64;
-  font-size:10px;
-  font-weight:400
-}
-.planner-inputs input,.planner-inputs select {
-  margin-top:7px;
-  display:block;
-  width:100%;
-  padding:13px;
-  border:1px solid #cfdbc6;
-  background:#fff;
-  border-radius:6px;
-  color:var(--ink)
-}
-.input-help {
-  font-size:10px;
-  line-height:1.7;
-  color:#687d5f
-}
-.budget-summary {
-  margin-top:22px;
-  padding:14px;
-  background:#ffffffa0;
-  border-radius:7px;
-  font-size:12px;
-  line-height:1.8
-}
-.recommendations {
-  display:grid;
-  gap:9px;
-  margin-top:12px
-}
-.recommendation {
-  padding:13px 15px;
-  background:#fff;
-  border:1px solid #dbe6d3;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px
-}
-.recommendation h3 {
-  font-size:14px;
-  margin:0 0 5px
-}
-.recommendation p {
-  font-size:10px;
-  color:#75846a;
-  margin:4px 0;
-  line-height:1.7
-}
-.recommendation button {
-  font-size:11px;
-  color:var(--green);
-  white-space:nowrap;
-  text-decoration:underline
-}
-.brand-tabs {
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:0 0 24px
-}
-.brand-tab {
-  border:1px solid #dbe4d5;
-  border-radius:8px;
-  padding:13px 22px;
-  background:#f7faf4;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:600;
-  font-size:13px
-}
-.brand-tab span {
-  font-size:10px;
-  opacity:.65;
-  font-weight:400
-}
-.brand-tab[aria-selected=true] {
-  background:var(--green);
-  color:white;
-  border-color:var(--green)
-}
-.searchbar input[type=number] {
-  width:100%;
-  border:0;
-  background:transparent;
-  padding:4px 0;
-  font-size:12px;
-  color:var(--ink)
-}
-.year-filter {
-  display:flex;
-  gap:10px;
-  align-items:center;
-  font-size:10px;
-  color:#7b8874
-}
-.year-filter select {
-  padding:7px;
-  border:1px solid #dce5d5;
-  border-radius:4px;
-  background:white;
-  color:var(--ink)
-}
-.condition-pill {
-  display:inline-block;
-  background:#eaf3df;
-  color:#416c2b;
-  font-size:8px;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  padding:4px 7px;
-  border-radius:4px;
-  margin-bottom:10px
-}
-.condition-pill.used {
-  background:#f3ead7;
-  color:#8c6327
-}
-.car.used .car-photo {
-  padding:0
-}
-.car.used .car-photo img {
-  object-fit:cover;
-  mix-blend-mode:normal
-}
-.car.used .car-photo .tag {
-  background:#ffffffed
-}
-.car-photo .image-fallback {
-  display:none;
-  position:absolute;
-  inset:0;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:8px;
-  background:#edf1e8;
-  color:#64735d
-}
-.image-fallback strong {
-  font-size:24px;
-  font-family:Manrope
-}
-.image-fallback small {
-  font-size:10px
-}
-.missing-image img {
-  display:none
-}
-.missing-image .image-fallback {
-  display:flex
-}
-.car-title h3 small {
-  display:block;
-  font-family:'DM Sans',Arial;
-  font-size:10px;
-  color:#87937e;
-  font-weight:400;
-  margin-top:5px;
-  letter-spacing:0
-}
-.market-note {
-  font-size:9px;
-  color:#929c8b;
-  line-height:1.6;
-  margin-bottom:13px
-}
-.compare-setup {
-  background:#f0f5e9;
-  padding:16px;
-  border-radius:8px;
-  margin:15px 0;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap
-}
-.compare-setup label {
-  font-size:10px;
-  color:#627458;
-  flex:1;
-  min-width:130px
-}
-.compare-setup input,.compare-table input {
-  display:block;
-  width:100%;
-  border:1px solid #d6e1cd;
-  background:white;
-  border-radius:4px;
-  padding:9px;
-  margin-top:5px;
-  color:var(--ink)
-}
-.compare-table td small {
-  display:block;
-  font-size:9px;
-  color:#849379;
-  line-height:1.6;
-  margin-top:5px
-}
-.compare-table .price-number {
-  font-size:19px;
-  font-weight:700
-}
-.good {
-  color:#247046
-}
-.over {
-  color:#aa5639
-}
-.decision {
-  padding:20px;
-  background:#f0f6e8;
-  border-left:4px solid #7a9d58;
-  border-radius:6px;
-  margin:20px 0
-}
-.decision h3 {
-  margin:0 0 9px;
-  font-size:18px
-}
-.decision p {
-  font-size:12px;
-  line-height:1.9;
-  margin:8px 0;
-  color:#627653
-}
-.advice-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin-top:20px
-}
-.advice-grid>div {
-  background:#f5f8f0;
-  padding:18px;
-  border-radius:7px
-}
-.advice-grid h3 {
-  font-size:14px;
-  margin-top:0
-}
-.advice-grid p {
-  font-size:12px;
-  line-height:1.8;
-  color:#6c7e61
-}
-.detail-photo {
-  position:relative;
-  min-height:220px
-}
-.detail-photo .image-fallback {
-  display:none
-}
-.detail-photo.missing-image .image-fallback {
-  display:flex;
-  position:absolute;
-  inset:0;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  background:#edf2e7;
-  border-radius:8px
-}
-.detail-photo.missing-image img {
-  display:none
-}
-.compare-photo {
-  position:relative;
-  min-height:110px
-}
-.compare-photo .image-fallback {
-  display:none
-}
-.compare-photo.missing-image .image-fallback {
-  display:block;
-  text-align:center;
-  padding:25px;
-  background:#edf3e6
-}
-.compare-photo.missing-image img {
-  display:none
-}
-.compare-photo .image-fallback strong {
-  font-size:16px
-}
-.compare-photo .image-fallback small {
-  font-size:8px
-}
-.sources-list {
-  font-size:11px;
-  line-height:2;
-  color:var(--green)
-}
-.compare-table input.invalid {
-  border-color:#b75a3c
-}
-.compare-table {
-  table-layout:auto
-}
-.modal-top {
-  position:sticky;
-  top:-25px;
-  background:white;
-  padding:10px 0;
-  z-index:2
-}
-.car-price strong {
-  font-size:18px
-}
-.badge-fit {
-  font-size:10px;
-  line-height:1.8
-}
-.brand-panel-note {
-  color:#718166;
-  font-size:11px;
-  margin:-10px 0 20px
-}
-@media(max-width:850px) {
-  .budget-planner {
-    grid-template-columns:1fr;
-    gap:22px;
-    padding:35px 5%
-  }
-  .planner-intro h2 br {
-    display:none
-  }
-  .planner-intro h2 {
-    font-size:29px
-  }
-  .planner-intro p br {
-    display:none
-  }
-  .brand-tab {
-    padding:11px 16px
-  }
-  .catalogue-toolbar {
-    align-items:start;
-    gap:15px;
-    flex-direction:column
-  }
-  
-}
-@media(max-width:650px) {
-  .planner-inputs {
-    gap:11px
-  }
-  .planner-inputs label {
-    font-size:10px
-  }
-  .planner-inputs label>span {
-    float:none;
-    display:block;
-    font-size:9px;
-    margin-top:3px
-  }
-  .brand-tabs {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px
-  }
-  .brand-tab:first-child {
-    grid-column:1/-1
-  }
-  .brand-tab {
-    justify-content:space-between;
-    padding:12px 14px;
-    font-size:12px
-  }
-  .recommendation {
-    align-items:start
-  }
-  .advice-grid {
-    grid-template-columns:1fr
-  }
-  .car-price strong {
-    font-size:15px
-  }
-  .compare-setup {
-    gap:10px
-  }
-  .compare-setup label {
-    min-width:100px
-  }
-  .year-filter {
-    flex-wrap:wrap
-  }
-  .detail-photo {
-    min-height:180px
-  }
-  
-}
+:root{--ink:#162d2a;--green:#145a46;--lime:#d4f078;--muted:#75817b;--line:#e1e6e1;--bg:#f8faf6}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;font-size:14px}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button,a{cursor:pointer}button{color:inherit}a{color:inherit;text-decoration:none}button{border:0;background:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #77a447;outline-offset:3px}header{height:88px;padding:0 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);background:var(--bg)}.logo{font-family:Manrope,Arial,sans-serif;font-size:25px;letter-spacing:-1.2px;font-weight:800;display:flex;align-items:center}.logo>span:not(.logo-icon){color:var(--green)}.logo small{font-size:8px;font-weight:600;letter-spacing:2px;align-self:flex-end;margin:0 0 5px 9px;color:#7b8980}.logo-icon{width:34px;height:34px;border-radius:8px;background:var(--green);color:var(--lime);display:inline-flex;align-items:center;justify-content:center;font-size:22px;margin-right:10px;position:relative}.logo-icon span{font-size:17px;position:absolute;right:1px;top:0}nav{display:flex;align-items:center;gap:30px;font-size:13px}nav a.active{font-weight:700}nav button span{margin-left:5px;border-radius:50%;padding:3px 6px;background:#e9eee7;font-size:11px}nav button:last-child{border:1px solid #cdd6ce;border-radius:7px;padding:10px 15px}.hero{display:grid;grid-template-columns:1fr 1.03fr;min-height:535px;padding:40px 6% 24px;overflow:hidden}.hero-copy{padding:28px 0}.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.8px;display:flex;align-items:center;gap:8px}.eyebrow>span{height:7px;width:7px;border-radius:50%;background:var(--green)}h1,h2,h3{font-family:Manrope,Arial,sans-serif}h1{font-size:clamp(38px,4.2vw,64px);font-weight:800;line-height:1.13;letter-spacing:-2.8px;margin:23px 0}h1 em{font-style:normal;color:var(--green)}.hero-copy>p{font-size:15px;color:#738077;line-height:1.8}.primary{border-radius:6px;padding:14px 21px;background:var(--green);color:white;display:inline-flex;gap:32px;align-items:center;font-weight:600;font-size:13px}.hero .primary{margin-top:16px}.hero-stats{display:flex;gap:32px;margin-top:39px}.hero-stats>div{display:flex;flex-direction:column;border-right:1px solid #d8ded6;padding-right:30px}.hero-stats>div:last-child{border:0}.hero-stats strong{font-family:Manrope;font-size:23px}.hero-stats span{font-size:10px;color:#7a867d;margin-top:5px}.hero-visual{position:relative;min-width:0;display:flex;align-items:center;justify-content:center}.round{position:absolute;width:440px;height:440px;border-radius:50%;background:#e9eedf;right:-15px;top:4px}.round:after{content:'';position:absolute;inset:25px;border:1px solid #d7dfcb;border-radius:50%}.backtype{position:absolute;font-family:Manrope;font-weight:800;font-size:112px;color:#d2ddc4;letter-spacing:-7px;top:75px;right:0}.hero-visual>img{position:relative;z-index:1;width:115%;max-height:330px;object-fit:contain;filter:drop-shadow(0 25px 13px #263a2720);margin-bottom:5px}.feature-label{position:absolute;bottom:26px;left:38px;display:flex;flex-direction:column;gap:7px;z-index:2}.feature-label>span{font-size:8px;letter-spacing:1.7px;color:#677662}.feature-label strong{font-family:Manrope;font-size:20px}.feature-label button{text-align:left;padding:0;font-size:11px;color:var(--green)}.edition{position:absolute;right:0;bottom:28px;font-size:8px;letter-spacing:1.5px;color:#8c9786}.catalogue{padding:48px 6% 40px;background:#fff;border-top:1px solid var(--line)}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:27px}.section-heading h2{font-size:34px;letter-spacing:-1.4px;margin:10px 0 0}.section-heading h2 span{color:#6c9348}.section-heading>p{color:#829087;font-size:12px}.searchbar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border:1px solid #dce3da;border-radius:8px;background:#fafcf8;padding:13px 0;gap:0}.searchbar label{display:flex;flex-direction:column;font-size:9px;letter-spacing:1px;color:#6b796e;padding:0 21px;border-left:1px solid #e0e5dc;gap:4px}.searchbar label:first-child{border:0}.searchbar select{border:0;background:transparent;color:var(--ink);width:100%;font-size:12px;letter-spacing:0;cursor:pointer;padding:4px 0}.searchbar .search{flex-direction:row;align-items:center;gap:13px}.search>span{font-size:30px;font-weight:400}.search input{width:100%;border:0;background:transparent;padding:10px 0;outline-offset:0;font-size:12px}.catalogue-toolbar{display:flex;align-items:center;justify-content:space-between;margin:25px 0}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{font-size:11px;padding:8px 16px;border:1px solid #e2e7de;border-radius:30px;color:#788277}.tabs .selected{background:var(--ink);border-color:var(--ink);color:white}#resultCount{font-size:11px;color:#869087}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}.car{border:1px solid #e4e9e2;border-radius:10px;overflow:hidden;transition:box-shadow .2s,transform .2s}.car:hover{transform:translateY(-3px);box-shadow:0 12px 28px #1b392610}.car-photo{height:200px;background:#f3f6ef;position:relative;padding:28px 22px 9px}.car-photo img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .3s}.car:hover img{transform:scale(1.035)}.tag{position:absolute;top:15px;left:15px;z-index:1;padding:5px 8px;background:#ffffffc9;border:1px solid #e0e5d8;border-radius:4px;font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.8px}.heart{position:absolute;right:13px;top:12px;background:white;border-radius:50%;width:31px;height:31px;z-index:1;font-size:22px;line-height:1}.heart.on{color:#145a46;background:#dff0d6}.car-info{padding:20px}.car-brand{text-transform:uppercase;font-size:9px;letter-spacing:1.6px;color:#80907e}.car-title{display:flex;justify-content:space-between;align-items:center;margin:5px 0 12px}.car-title h3{font-size:23px;letter-spacing:-.7px;margin:0}.car-title>span{font-size:9px;color:#8b9588}.spec-mini{display:flex;gap:10px;font-size:10px;color:#7d8779;padding-bottom:17px;border-bottom:1px solid #edf0e9}.car-price{margin:15px 0}.car-price small{display:block;color:#8b9688;font-size:9px;margin-bottom:4px}.car-price strong{font-size:21px;letter-spacing:-.5px}.car-price strong span{font-size:11px;letter-spacing:0;font-weight:500;margin-right:4px}.car-price .range{font-size:10px;color:#84917f;margin-top:5px}.card-actions{display:flex;justify-content:space-between;align-items:center;gap:8px}.details{border:1px solid #dae2d4;border-radius:5px;padding:10px 12px;font-size:11px;flex:1;text-align:left;display:flex;justify-content:space-between}.compare-check{font-size:10px;display:flex;align-items:center;gap:4px;cursor:pointer}.compare-check input{accent-color:var(--green)}.pricing-note{font-size:10px;color:#8a9386;text-align:center;line-height:1.7;margin:28px 0 0}.confidence{display:grid;grid-template-columns:repeat(3,1fr);gap:45px;padding:40px 6%;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.number{color:#8d9c81;font-size:10px;letter-spacing:1px}.confidence h3{font-size:15px;margin:13px 0 8px}.confidence p{color:#81907c;font-size:12px;line-height:1.8;margin:0;max-width:300px}footer{padding:32px 6% 90px;display:flex;justify-content:space-between;align-items:center;gap:20px}footer .logo{font-size:20px}footer p,footer button{font-size:10px;color:#82917a}#compareTray{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:5;background:var(--ink);color:white;box-shadow:0 7px 30px #0003;border-radius:9px;padding:12px 17px;display:flex;align-items:center;gap:20px;font-size:12px;max-width:95%;width:max-content}#compareTray[hidden]{display:none}#compareTray .primary{background:var(--lime);color:var(--ink);padding:11px 16px}#clearCompare{color:#bec9bf}dialog{border:0;border-radius:13px;max-width:1020px;width:92%;max-height:90vh;color:var(--ink);padding:25px;background:#fff}dialog::backdrop{background:#10231ecc;backdrop-filter:blur(5px)}.modal-top{display:flex;justify-content:space-between;align-items:center;color:#7a8b7d;font-size:9px;letter-spacing:1.5px;margin-bottom:20px}.modal-top button{font-size:18px}.detail-hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.detail-hero img{width:100%;height:240px;object-fit:contain;background:#f5f7f1;border-radius:10px}.detail-hero h2{font-size:32px;letter-spacing:-1px;margin:8px 0}.detail-hero p{color:#73816f;font-size:12px;line-height:1.7}.variant-select{width:100%;padding:12px;border:1px solid #d9e2d2;border-radius:5px;background:#f8faf6;margin:10px 0}.detail-price{font-size:29px;font-weight:700;margin:16px 0 7px}.source-note{font-size:11px;color:#74856f;line-height:1.8}.source-note a{text-decoration:underline;color:var(--green)}.spec-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:12px}.spec-table th,.spec-table td{border-bottom:1px solid #e7ecdf;padding:12px;text-align:left;vertical-align:top}.spec-table th{font-weight:500;color:#74846f;width:27%}.spec-table tr:nth-child(even){background:#f7f9f4}.compare-scroll{overflow:auto}.compare-table{min-width:590px}.compare-table img{height:115px;width:100%;object-fit:contain}.compare-table td{min-width:190px}.compare-table th{min-width:135px}.compare-table h3{margin:8px 0}.compare-table select{max-width:230px}#toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:12px 22px;border-radius:7px;opacity:0;pointer-events:none;z-index:20;transition:opacity .2s;font-size:12px}.empty{grid-column:1/-1;text-align:center;padding:60px 20px;border:1px dashed #dce3d4;border-radius:9px;color:#788674}.empty h3{font-size:22px;color:var(--ink)}.empty button,#savedNotice button{color:var(--green);text-decoration:underline}.about{line-height:1.9;max-width:750px;margin:auto}.about h2{font-size:30px}.about p{color:#72836d}#savedNotice{padding:12px;margin-bottom:18px;background:#eef5e7;font-size:12px}
+@media(min-width:1500px){header,main,footer{max-width:1600px;margin:auto}}@media(max-width:950px){header{padding:0 4%}.hero{padding:30px 4%;min-height:470px}.hero h1{font-size:43px}.round{width:330px;height:330px;top:20px}.backtype{font-size:85px;top:90px}.hero-visual>img{width:120%}.hero-stats{gap:15px}.hero-stats>div{padding-right:15px}.feature-label{left:12px}.edition{display:none}.catalogue{padding:35px 4%}.car-photo{height:160px}.car-info{padding:15px}.car-price strong{font-size:18px}.spec-mini{font-size:9px;gap:5px}.card-actions{flex-wrap:wrap}.details{flex-basis:100%}.grid{gap:15px}.confidence{gap:25px;padding:35px 4%}}
+@media(max-width:650px){header{height:72px}.logo{font-size:20px}.logo small,.logo-icon{display:none}nav{gap:12px;font-size:10px}nav button{font-size:10px;padding:0}nav button:last-child{padding:8px}nav a{display:none}.hero{grid-template-columns:1fr;padding:22px 6% 0}.hero-copy{padding:12px 0}.eyebrow{font-size:8px}h1{font-size:42px!important;letter-spacing:-2px;margin:18px 0}.hero-copy>p{font-size:13px}.hero-stats{margin-top:27px}.hero-stats strong{font-size:20px}.hero-visual{height:330px;margin:0 -6%;overflow:hidden}.round{width:290px;height:290px;right:7%;top:5px}.backtype{font-size:92px;top:35px;right:8%}.hero-visual>img{width:90%;height:230px;margin-bottom:35px}.feature-label{bottom:18px;left:8%}.feature-label strong{font-size:17px}.feature-label>span{font-size:7px}.catalogue{padding:33px 5%}.section-heading>p{display:none}.section-heading h2{font-size:29px}.searchbar{grid-template-columns:1fr 1fr;gap:15px;padding:15px 0}.searchbar .search{grid-column:1/-1;padding-bottom:10px;border-bottom:1px solid #e1e7da}.searchbar label{padding:0 15px}.searchbar label:nth-child(2){border:0}.searchbar label:last-child{grid-column:1/-1;border:0;border-top:1px solid #e1e7da;padding-top:10px}.tabs{gap:5px}.tabs button{font-size:10px;padding:7px 10px}.catalogue-toolbar{gap:14px;align-items:start;flex-direction:column}.grid{grid-template-columns:1fr 1fr;gap:12px}.car-photo{height:133px;padding:30px 5px 8px}.tag{font-size:6px;top:10px;left:9px}.heart{width:25px;height:25px;right:7px;top:7px;font-size:18px}.car-info{padding:12px}.car-title{align-items:start;gap:5px}.car-title h3{font-size:20px}.car-title>span{font-size:8px}.car-brand{font-size:8px}.spec-mini{flex-direction:column;gap:5px;padding-bottom:10px}.car-price strong{font-size:17px}.car-price strong span{font-size:9px}.car-price .range{font-size:9px}.details{font-size:10px;padding:8px}.confidence{grid-template-columns:1fr;gap:23px;padding:30px 6%}.confidence p{max-width:none}.confidence h3{margin:7px 0}footer{flex-direction:column;text-align:center;gap:12px;padding-bottom:100px}footer p{margin:0}.detail-hero{grid-template-columns:1fr;gap:15px}.detail-hero img{height:180px}dialog{padding:18px;width:95%}.detail-hero h2{font-size:26px}.spec-table{font-size:11px}.spec-table th,.spec-table td{padding:10px 7px}#compareTray{gap:10px;padding:10px;font-size:10px}#compareTray .primary{font-size:10px;padding:10px}.pricing-note{text-align:left}.compare-table{min-width:580px}.compare-table th{min-width:110px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.budget-planner{display:grid;grid-template-columns:1fr 1.8fr;gap:50px;padding:45px 6%;background:#eaf1e3;border-top:1px solid #d5e0cd}.planner-intro h2{font-size:34px;line-height:1.2;letter-spacing:-1px;margin:16px 0}.planner-intro p{font-size:13px;color:#64755e;line-height:1.8}.preset{background:white;border:1px solid #cbdcc2;border-radius:6px;padding:12px 15px;margin-top:12px;font-size:12px;color:var(--green);text-align:left}.planner-inputs{display:grid;grid-template-columns:1fr 1fr;gap:15px}.planner-inputs label{font-size:11px;font-weight:600}.planner-inputs label>span{float:right;color:#6c7d64;font-size:10px;font-weight:400}.planner-inputs input,.planner-inputs select{margin-top:7px;display:block;width:100%;padding:13px;border:1px solid #cfdbc6;background:#fff;border-radius:6px;color:var(--ink)}.input-help{font-size:10px;line-height:1.7;color:#687d5f}.budget-summary{margin-top:22px;padding:14px;background:#ffffffa0;border-radius:7px;font-size:12px;line-height:1.8}.recommendations{display:grid;gap:9px;margin-top:12px}.recommendation{padding:13px 15px;background:#fff;border:1px solid #dbe6d3;border-radius:6px;display:flex;align-items:center;justify-content:space-between;gap:15px}.recommendation h3{font-size:14px;margin:0 0 5px}.recommendation p{font-size:10px;color:#75846a;margin:4px 0;line-height:1.7}.recommendation button{font-size:11px;color:var(--green);white-space:nowrap;text-decoration:underline}.brand-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}.brand-tab{border:1px solid #dbe4d5;border-radius:8px;padding:13px 22px;background:#f7faf4;display:flex;align-items:center;gap:12px;font-weight:600;font-size:13px}.brand-tab span{font-size:10px;opacity:.65;font-weight:400}.brand-tab[aria-selected=true]{background:var(--green);color:white;border-color:var(--green)}.searchbar input[type=number]{width:100%;border:0;background:transparent;padding:4px 0;font-size:12px;color:var(--ink)}.year-filter{display:flex;gap:10px;align-items:center;font-size:10px;color:#7b8874}.year-filter select{padding:7px;border:1px solid #dce5d5;border-radius:4px;background:white;color:var(--ink)}.condition-pill{display:inline-block;background:#eaf3df;color:#416c2b;font-size:8px;letter-spacing:.8px;text-transform:uppercase;padding:4px 7px;border-radius:4px;margin-bottom:10px}.condition-pill.used{background:#f3ead7;color:#8c6327}.car.used .car-photo{padding:0}.car.used .car-photo img{object-fit:cover;mix-blend-mode:normal}.car.used .car-photo .tag{background:#ffffffed}.car-photo .image-fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#edf1e8;color:#64735d}.image-fallback strong{font-size:24px;font-family:Manrope}.image-fallback small{font-size:10px}.missing-image img{display:none}.missing-image .image-fallback{display:flex}.car-title h3 small{display:block;font-family:'DM Sans',Arial;font-size:10px;color:#87937e;font-weight:400;margin-top:5px;letter-spacing:0}.market-note{font-size:9px;color:#929c8b;line-height:1.6;margin-bottom:13px}.compare-setup{background:#f0f5e9;padding:16px;border-radius:8px;margin:15px 0;display:flex;gap:20px;flex-wrap:wrap}.compare-setup label{font-size:10px;color:#627458;flex:1;min-width:130px}.compare-setup input,.compare-table input{display:block;width:100%;border:1px solid #d6e1cd;background:white;border-radius:4px;padding:9px;margin-top:5px;color:var(--ink)}.compare-table td small{display:block;font-size:9px;color:#849379;line-height:1.6;margin-top:5px}.compare-table .price-number{font-size:19px;font-weight:700}.good{color:#247046}.over{color:#aa5639}.decision{padding:20px;background:#f0f6e8;border-left:4px solid #7a9d58;border-radius:6px;margin:20px 0}.decision h3{margin:0 0 9px;font-size:18px}.decision p{font-size:12px;line-height:1.9;margin:8px 0;color:#627653}.advice-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}.advice-grid>div{background:#f5f8f0;padding:18px;border-radius:7px}.advice-grid h3{font-size:14px;margin-top:0}.advice-grid p{font-size:12px;line-height:1.8;color:#6c7e61}.detail-photo{position:relative;min-height:220px}.detail-photo .image-fallback{display:none}.detail-photo.missing-image .image-fallback{display:flex;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;background:#edf2e7;border-radius:8px}.detail-photo.missing-image img{display:none}.compare-photo{position:relative;min-height:110px}.compare-photo .image-fallback{display:none}.compare-photo.missing-image .image-fallback{display:block;text-align:center;padding:25px;background:#edf3e6}.compare-photo.missing-image img{display:none}.compare-photo .image-fallback strong{font-size:16px}.compare-photo .image-fallback small{font-size:8px}.sources-list{font-size:11px;line-height:2;color:var(--green)}.compare-table input.invalid{border-color:#b75a3c}.compare-table{table-layout:auto}.modal-top{position:sticky;top:-25px;background:white;padding:10px 0;z-index:2}.car-price strong{font-size:18px}.badge-fit{font-size:10px;line-height:1.8}.brand-panel-note{color:#718166;font-size:11px;margin:-10px 0 20px}
+@media(max-width:850px){.budget-planner{grid-template-columns:1fr;gap:22px;padding:35px 5%}.planner-intro h2 br{display:none}.planner-intro h2{font-size:29px}.planner-intro p br{display:none}.brand-tab{padding:11px 16px}.catalogue-toolbar{align-items:start;gap:15px;flex-direction:column}}
+@media(max-width:650px){.planner-inputs{gap:11px}.planner-inputs label{font-size:10px}.planner-inputs label>span{float:none;display:block;font-size:9px;margin-top:3px}.brand-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.brand-tab:first-child{grid-column:1/-1}.brand-tab{justify-content:space-between;padding:12px 14px;font-size:12px}.recommendation{align-items:start}.advice-grid{grid-template-columns:1fr}.car-price strong{font-size:15px}.compare-setup{gap:10px}.compare-setup label{min-width:100px}.year-filter{flex-wrap:wrap}.detail-photo{min-height:180px}}
 
 
-==============================================================================
+============================================================================
+FILE: pwa.css
+============================================================================
+/* Phone app layout and installation. Existing catalogue styles stay in style.css. */
+[hidden] { display: none !important; }
+body { min-width: 280px; }
+.header-tools { display: flex; align-items: center; gap: 14px; }
+.connection-status { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; color: #667a68; white-space: nowrap; }
+.connection-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #458755; }
+.connection-status.offline::before { background: #b47836; }
+.install-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 10px 14px; border: 1px solid #cad8c7; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.install-button svg { width: 17px; height: 17px; }
+.app-banner { margin: 0 6% 30px; padding: 22px 24px; border: 1px solid #d3dec9; border-radius: 14px; background: #f0f5e8; display: flex; align-items: center; gap: 18px; }
+.app-banner > img { width: 58px; height: 58px; border-radius: 14px; flex: 0 0 auto; }
+.app-banner-copy { flex: 1; }
+.app-banner h2 { margin: 0 0 6px; font-size: 19px; letter-spacing: -.5px; }
+.app-banner p { margin: 0; font-size: 12px; line-height: 1.7; color: #697b5e; }
+.app-banner-actions { display: flex; align-items: center; gap: 12px; }
+.app-banner-actions .primary { gap: 10px; min-height: 44px; white-space: nowrap; }
+.text-button { padding: 10px 4px; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.mobile-nav { display: none; }
+.update-banner { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 25; max-width: calc(100% - 24px); width: max-content; background: var(--ink); color: white; border-radius: 9px; box-shadow: 0 5px 24px #0003; padding: 10px 13px; display: flex; align-items: center; gap: 16px; font-size: 12px; }
+.update-banner button { color: var(--lime); font-weight: 700; padding: 8px; }
+.install-dialog { width: min(92%, 500px); padding: 24px; max-height: 88dvh; }
+.install-dialog .modal-top { top: -24px; }
+.install-dialog-heading { display: flex; gap: 16px; align-items: center; margin: 0 0 20px; }
+.install-dialog-heading img { width: 64px; height: 64px; border-radius: 15px; }
+.install-dialog-heading h2 { margin: 0 0 5px; font-size: 24px; letter-spacing: -.7px; }
+.install-dialog-heading p { margin: 0; font-size: 12px; color: #6f7f69; line-height: 1.6; }
+.install-platforms { display: flex; border: 1px solid #dbe5d3; border-radius: 9px; padding: 4px; gap: 4px; margin-bottom: 20px; background: #f4f8ef; }
+.install-platforms button { flex: 1; min-height: 42px; border-radius: 6px; font-size: 12px; }
+.install-platforms button[aria-pressed=true] { background: var(--green); color: white; }
+.install-steps { padding-left: 23px; margin: 0 0 18px; font-size: 13px; line-height: 1.9; }
+.install-steps li { padding-left: 3px; margin-bottom: 10px; }
+.install-tip { padding: 12px 14px; background: #f0f5e8; border-radius: 8px; font-size: 11px; line-height: 1.8; color: #65765d; }
+.offline-info { border-top: 1px solid #e3e9dd; padding-top: 15px; margin-top: 20px; }
+.offline-info strong { font-size: 12px; }
+.offline-info p { margin: 7px 0 0; font-size: 11px; line-height: 1.8; color: #718067; }
+.compare-hint { display: none; font-size: 11px; color: #697b5e; margin: 10px 0; }
+@media (max-width: 1100px) { header { gap: 16px; } header > nav { gap: 18px; } .header-tools { gap: 9px; } .connection-status { font-size: 9px; } }
+@media (max-width: 900px) { .header-tools .connection-status { display: none; } .app-banner { margin: 0 4% 24px; } .app-banner-actions { flex-direction: column; gap: 2px; } }
+@media (max-width: 650px) {
+  html { scroll-padding-top: calc(88px + env(safe-area-inset-top, 0px)); }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+  header { position: sticky; top: 0; z-index: 8; height: calc(66px + env(safe-area-inset-top, 0px)); padding: env(safe-area-inset-top, 0px) 5% 0; background: #f8faf6f5; backdrop-filter: blur(12px); }
+  header > nav { display: none; }
+  header .logo { font-size: 21px; }
+  header .logo-icon { display: inline-flex; height: 30px; width: 30px; font-size: 20px; margin-right: 8px; }
+  .header-tools .connection-status { display: inline-flex; font-size: 9px; }
+  .install-button { min-height: 40px; padding: 8px 11px; font-size: 11px; }
+  .install-button svg { display: none; }
+  .hero { padding-top: 17px; }
+  .hero-visual { height: 295px; }
+  .hero-stats { gap: 16px; }
+  .hero-stats > div { padding-right: 14px; }
+  .hero-stats span { font-size: 9px; }
+  .app-banner { margin: 8px 5% 24px; padding: 17px; gap: 12px; flex-wrap: wrap; }
+  .app-banner > img { height: 48px; width: 48px; border-radius: 12px; }
+  .app-banner-copy { flex-basis: calc(100% - 70px); }
+  .app-banner h2 { font-size: 16px; }
+  .app-banner p { font-size: 11px; }
+  .app-banner-actions { flex-direction: row; width: 100%; margin-top: 2px; gap: 18px; }
+  .app-banner-actions .primary { padding: 12px 17px; }
+  .mobile-nav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; height: calc(66px + env(safe-area-inset-bottom, 0px)); padding: 4px max(6px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(6px, env(safe-area-inset-left, 0px)); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; background: #fffffffa; border-top: 1px solid #dce5d6; box-shadow: 0 -5px 25px #213c2010; backdrop-filter: blur(12px); }
+  .mobile-nav > a, .mobile-nav > button, .mobile-nav > button:last-child { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; position: relative; border: 0; border-radius: 9px; padding: 5px 3px; margin: 0; font-size: 10px; font-weight: 500; color: #758371; background: none; }
+  .mobile-nav svg { width: 21px; height: 21px; }
+  .mobile-nav .selected { background: #eaf2e3; color: var(--green); font-weight: 700; }
+  .mobile-nav .nav-count { position: absolute; top: 2px; left: calc(50% + 7px); background: var(--green); color: white; border-radius: 20px; font-size: 8px; line-height: 15px; min-width: 15px; height: 15px; padding: 0 3px; margin: 0; }
+  input, select, textarea, .searchbar select, .search input, .searchbar input[type=number], .planner-inputs input, .planner-inputs select { font-size: 16px; }
+  .brand-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; margin: 0 -5.6% 20px; padding: 2px 5.6% 9px; scrollbar-width: thin; }
+  .brand-tab { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-height: 58px; padding: 11px 16px; }
+  .brand-tab:first-child { grid-column: auto; }
+  .brand-tab span { font-size: 9px; }
+  .brand-tab, .tabs button, .heart, .details, .compare-check { min-height: 44px; }
+  .heart { min-width: 36px; height: 36px; min-height: 36px; top: 8px; right: 8px; }
+  .compare-check input { height: 18px; width: 18px; }
+  .card-actions { gap: 2px; }
+  .car-title h3 { font-size: 18px; }
+  .car-price strong { font-size: 16px; overflow-wrap: anywhere; }
+  .recommendation { flex-wrap: wrap; }
+  .recommendation button { min-height: 44px; }
+  #compareTray { bottom: calc(77px + env(safe-area-inset-bottom, 0px)); width: calc(100% - 24px); max-width: none; padding: 10px 12px; gap: 12px; justify-content: space-between; }
+  #compareTray > span { font-size: 11px; flex: 1; }
+  #compareTray .primary { padding: 11px 12px; min-height: 44px; font-size: 11px; white-space: nowrap; }
+  #clearCompare { min-height: 44px; font-size: 11px; }
+  #toast { bottom: calc(153px + env(safe-area-inset-bottom, 0px)); max-width: calc(100% - 30px); width: max-content; }
+  dialog { max-height: calc(90dvh - env(safe-area-inset-top, 0px)); width: calc(100% - 20px); padding: 18px; }
+  .modal-top { top: -18px; padding-top: 10px; }
+  .modal-top button { min-height: 44px; min-width: 44px; }
+  .compare-table { min-width: 590px; }
+  .compare-hint { display: block; }
+  .install-dialog { padding: 20px; width: calc(100% - 24px); }
+  .install-dialog .modal-top { top: -20px; }
+  .update-banner { top: calc(76px + env(safe-area-inset-top, 0px)); }
+  footer { padding-bottom: 28px; flex-wrap: wrap; }
+}
+@media (max-width: 360px) { header .logo { font-size: 18px; } header .logo-icon { display: none; } .header-tools { gap: 7px; } .grid { grid-template-columns: 1fr; } .car-photo { height: 190px; } .car-info { padding: 18px; } .spec-mini { flex-direction: row; gap: 12px; } }
+@media (display-mode: standalone) { [data-install], #appBanner { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+
+============================================================================
 FILE: app.js
-==============================================================================
+============================================================================
 'use strict';
-
-const $ = s => document.querySelector(s),
-  M = CarMath;
-let cars = [],
-  body = '',
-  brand = '',
-  savedOnly = false,
-  compare = [],
-  variants = {},
-  overrides = {},
-  economies = {},
-  maintenance = {},
-  saved = [];
-let monthlyKm = 1000,
-  fuelPrice = 300;
-try {
-  saved = JSON.parse(localStorage.getItem('pakautohub-saved') || '[]');
-  if (!Array.isArray(saved)) saved = [];
-} catch {}
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#39;'
-})[c]);
-const money = n => new Intl.NumberFormat('en-PK', {
-  maximumFractionDigits: 0
-}).format(n);
-const lakh = n => (n / 100000).toFixed(2);
-const car = s => cars.find(c => c.slug === s);
-const link = u => /^https:\/\//.test(u) ? esc(u) : '#';
-const vFor = c => c.variants[variants[c.slug] || 0];
-const keyFor = c => c.slug + ':' + (variants[c.slug] || 0);
-const priceFor = c => overrides[keyFor(c)] ?? M.midpoint(vFor(c));
-const label = c => `${c.brand} ${c.name} ${c.condition === 'used' ? c.year : '· New'}`;
-const range = (lo, hi) => lakh(lo) + (hi > lo ? '–' + lakh(hi) : '') + ' lakh';
-let toastTimer;
-function toast(t) {
-  $('#toast').textContent = t;
-  $('#toast').style.opacity = 1;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $('#toast').style.opacity = 0, 3000);
-}
-function plan() {
-  return {
-    budget: M.num($('#totalBudget').value, 30) * 100000,
-    fees: M.num($('#fees').value, .5) * 100000,
-    reserve: M.num($('#reserve').value, 2) * 100000,
-    priority: $('#priority').value
-  };
-}
-function imageHtml(c, cls = '') {
-  return `<div class="${cls}"><img src="${esc(c.image)}" alt="${esc(label(c))} — representative model photo" loading="lazy"><div class="image-fallback"><strong>${esc(c.name)}</strong><small>${c.year} · Photo unavailable</small></div></div>`;
-}
-function photoErrors() {
-  document.querySelectorAll('img').forEach(img => {
-    img.onerror = () => {
-      img.parentElement.classList.add('missing-image');
-      img.alt = 'Photo unavailable';
-    };
-    if (img.complete && !img.naturalWidth) img.onerror();
-  });
-}
-function sourceHtml(c) {
-  return `<div class="sources-list">${c.sources.map(s => `<a href="${link(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a>`).join('<br>')}</div>`;
-}
-function renderBrands() {
-  const names = ['', 'Toyota', 'Honda', 'Suzuki', 'Hyundai'];
-  $('#brandTabs').innerHTML = names.map(n => `<button role="tab" aria-selected="${brand === n}" class="brand-tab" data-brand="${n}">${n || 'All companies'}<span>${cars.filter(c => !n || c.brand === n).length} cars</span></button>`).join('');
-}
-function render() {
-  const f = {
-    q: $('#search').value.trim(),
-    brand,
-    body,
-    condition: $('#condition').value,
-    year: $('#year').value,
-    budget: M.num($('#budget').value) * 100000,
-    savedOnly,
-    saved
-  };
-  let list = cars.filter(c => M.matches(c, f));
-  const sort = $('#sort').value;
-  if (sort === 'low') list.sort((a, b) => M.minPrice(a) - M.minPrice(b));
-  if (sort === 'high') list.sort((a, b) => M.minPrice(b) - M.minPrice(a));
-  if (sort === 'name') list.sort((a, b) => label(a).localeCompare(label(b)));
-  $('#resultCount').textContent = `${list.length} entries`;
-  $('#savedNotice').hidden = !savedOnly;
-  $('#savedCount').textContent = saved.length;
-  $('#compareCount').textContent = compare.length;
-  renderBrands();
-  $('#cars').innerHTML = list.length ? list.map(c => `<article class="car ${c.condition}"><div class="car-photo"><span class="tag">${esc(c.body)}</span><button class="heart ${saved.includes(c.slug) ? 'on' : ''}" data-save="${c.slug}" aria-label="${saved.includes(c.slug) ? 'Unsave' : 'Save'} ${esc(label(c))}" aria-pressed="${saved.includes(c.slug)}">${saved.includes(c.slug) ? '♥' : '♡'}</button><img src="${esc(c.image)}" alt="${esc(label(c))}" loading="lazy"><div class="image-fallback"><strong>${esc(c.name)}</strong><small>${c.year} · Photo unavailable</small></div></div><div class="car-info"><span class="condition-pill ${c.condition}">${c.condition === 'used' ? 'Used · ' + c.year : 'New car'}</span><div class="car-brand">${esc(c.brand)}</div><div class="car-title"><h3>${esc(c.name)}<small>${c.condition === 'used' ? c.year + ' model' : c.year + ' catalogue'}</small></h3><span>${c.variants.length > 1 ? c.variants.length + ' variants' : ''}</span></div><div class="spec-mini"><span>◈ ${esc(c.variants[0].engine.split(' ·')[0])}</span><span>◇ ${esc(c.variants[0].fuel)}</span></div><div class="car-price"><small>${c.condition === 'used' ? 'OBSERVED ASKING PRICES' : 'STARTING FROM'}</small><strong>${c.condition === 'used' ? range(M.minPrice(c), M.maxPrice(c)) : '<span>PKR</span> ' + money(M.minPrice(c))}</strong><div class="range">${c.condition === 'used' ? 'PKR · not a guaranteed valuation' : range(M.minPrice(c), M.maxPrice(c))}</div></div><div class="market-note">${esc(c.market)}<br>Price checked ${esc(c.variants[0].checked)}</div><div class="card-actions"><button class="details" data-detail="${c.slug}">View details <span>↗</span></button><label class="compare-check"><input type="checkbox" data-compare="${c.slug}" ${compare.includes(c.slug) ? 'checked' : ''}>Compare</label></div></div></article>`).join('') : `<div class="empty"><h3>${savedOnly ? 'No saved cars match.' : 'No cars match these filters.'}</h3><p>Try another company, model year or budget.</p><button id="resetFilters">Reset all filters ↗</button></div>`;
-  $('#compareTray').hidden = !compare.length;
-  $('#trayText').textContent = `${compare.length} / 3 cars selected`;
-  photoErrors();
-}
-function reset() {
-  body = '';
-  brand = '';
-  savedOnly = false;
-  ['search', 'condition', 'budget', 'year'].forEach(id => $('#' + id).value = '');
-  $('#sort').value = 'featured';
-  document.querySelectorAll('[data-body]').forEach(b => b.classList.toggle('selected', !b.dataset.body));
-  render();
-}
-function show(html) {
-  $('#modalContent').innerHTML = html;
-  if (!$('#modal').open) $('#modal').showModal();
-  photoErrors();
-}
-function detail(slug) {
-  const c = car(slug);
-  if (!c) return;
-  const v = vFor(c);
-  show(`<div class="detail-hero"><div>${imageHtml(c, 'detail-photo')}<p class="source-note">${esc(c.image_caption)} <a href="${link(c.image_source)}" target="_blank" rel="noopener">Photo source ↗</a></p></div><div><span class="condition-pill ${c.condition}">${c.condition} · ${c.year}</span><div class="eyebrow">${esc(c.brand)} / ${esc(c.body)}</div><h2>${esc(c.brand + ' ' + c.name)}</h2><p>${esc(c.description)}</p><label for="detailVariant">${c.condition === 'used' ? 'Price sample / trim scope' : 'Choose a variant'}</label><select id="detailVariant" class="variant-select" data-variant="${slug}">${c.variants.map((x, i) => `<option value="${i}" ${x === v ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}</select><div class="detail-price">${c.condition === 'used' ? range(v.price, v.price_max ?? v.price) : 'PKR ' + money(v.price)}</div><p class="source-note">${esc(c.price_basis)}<br>${esc(c.market)} · checked ${esc(v.checked)}<br>${c.condition === 'used' ? 'Sample listings may no longer be available. Inspect and negotiate the individual car.' : 'Base price excludes additional on-road costs. Confirm a current dealer quotation.'}</p>${sourceHtml(c)}<button class="primary" data-addcompare="${c.slug}">Add to comparison ↗</button></div></div><div class="advice-grid"><div><h3>Why consider it?</h3><p>${esc(c.advice.strength)}</p></div><div><h3>Before you decide</h3><p>${esc(c.advice.check)}</p></div></div><h3>Recorded specifications</h3><p class="source-note">Used-car equipment is not independently inspected. Unrecorded features remain unknown.</p><table class="spec-table"><tbody>${Object.entries({
-    'Model year': c.year,
-    'Condition': c.condition,
-    'Engine': v.engine,
-    'Transmission': v.transmission,
-    'Fuel': v.fuel,
-    ...c.specs,
-    ...v.specs
-  }).map(([k, val]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(val)}</td></tr>`).join('')}</tbody></table>`);
-}
-function budgetResults() {
-  const p = plan();
-  if (p.budget <= 0) {
-    $('#budgetResults').innerHTML = '<p>Please enter a budget above zero.</p>';
-    return;
-  }
-  const list = M.shortlist(cars, p),
-    newCars = cars.filter(c => c.condition === 'new'),
-    nearestNew = newCars.sort((a, b) => M.minPrice(a) - M.minPrice(b))[0];
-  const nStatus = M.budgetStatus(nearestNew, p.budget, p.fees, p.reserve);
-  const priorities = {
-    family: 'Sedans are prioritised for your family-space preference; this is a body-style preference, not a measured comfort rating.',
-    city: 'Hatchbacks are prioritised for your city-size preference; fuel use is not assumed.',
-    new: 'New cars are prioritised when the stated budget plus allowances permits.',
-    budget: 'Options are sorted by their lowest estimated upfront outlay.'
-  };
-  $('#budgetResults').innerHTML = `<div class="budget-summary"><strong>${lakh(p.budget)} lakh total budget</strong><br>${priorities[p.priority]}<br>${nStatus.fit === 'over' ? `Lowest new-car entry needs ${lakh(nStatus.low)} lakh including your transaction allowance (${esc(nearestNew.name)}). No new entry fits this total budget with the current allowance.` : 'New and used entries are assessed using the same transaction allowance.'}</div><div class="recommendations">${list.map(x => `<div class="recommendation"><div><h3>${esc(label(x.c))}</h3><p>Purchase ${range(M.minPrice(x.c), M.maxPrice(x.c))} · With allowances ${range(x.low, x.high)}</p><p>${x.fit === 'partial' ? 'Only lower-priced examples may fit; the upper range exceeds your budget.' : 'Full observed range fits your planning budget.'}</p></div><button data-addcompare="${x.c.slug}">Compare +</button></div>`).join('') || '<p>No entries fit. Increase the budget or revise your allowances; do not remove a reserve without considering repair risk.</p>'}</div><p class="input-help">Shortlist uses body style, condition and price only. It does not rate mechanical condition, crash safety, resale or reliability. Source locations differ; this is not a Faisalabad valuation.</p>`;
-}
-function decision(cs) {
-  const p = plan();
-  const fits = cs.filter(c => M.upfront(c, priceFor(c), p.fees, p.reserve) <= p.budget);
-  const ranked = [...fits].sort((a, b) => {
-    const pref = c => p.priority === 'family' ? c.body === 'Sedan' : p.priority === 'city' ? c.body === 'Hatchback' : p.priority === 'new' ? c.condition === 'new' : false;
-    return Number(pref(b)) - Number(pref(a)) || M.upfront(a, priceFor(a), p.fees, p.reserve) - M.upfront(b, priceFor(b), p.fees, p.reserve);
-  });
-  const best = ranked[0],
-    priorityText = {
-      family: 'your sedan / family-space preference',
-      city: 'your hatchback / city-size preference',
-      new: 'your preference for a new car',
-      budget: 'the lowest upfront cost'
-    };
-  return `<div class="decision"><h3>${best ? esc(label(best)) + ' is worth shortlisting.' : 'None fits your total budget yet.'}</h3><p>${best ? `Among the selected cars, this is the closest match using ${priorityText[p.priority]} and your entered costs. Planned upfront total: <strong>${lakh(M.upfront(best, priceFor(best), p.fees, p.reserve))} lakh</strong>. ${esc(best.advice.strength)}` : 'The entered purchase prices plus allowances exceed your budget. Try a lower quoted price, a different car, or a higher budget.'}</p><p>${best ? esc(best.advice.check) : ''} This is a transparent planning suggestion, not an inspection or a reliability score. Compare the actual car’s condition and safety equipment before buying.</p></div>`;
-}
-function comparison() {
-  if (compare.length < 2) {
-    toast('Select at least two cars to compare.');
-    return;
-  }
-  const cs = compare.map(car),
-    vs = cs.map(vFor),
-    p = plan(),
-    keys = [...new Set(cs.flatMap((c, i) => Object.keys({
-      ...c.specs,
-      ...vs[i].specs
-    })))];
-  const row = (name, fn) => `<tr><th scope="row">${name}</th>${cs.map((c, i) => `<td>${fn(c, i)}</td>`).join('')}</tr>`;
-  show(`<h2>New or used. Make the comparison yours.</h2><p class="source-note">Your budget: <strong>${lakh(p.budget)} lakh</strong> · Priority: ${esc($('#priority').selectedOptions[0].textContent)}. Change these in the budget finder. Used prices start at the midpoint of the observed range; replace them with actual seller quotes.</p><div class="compare-setup"><label>Distance / month (km)<input id="monthlyKm" type="number" min="0" max="100000" step="100" value="${monthlyKm}"></label><label>Petrol price (PKR/litre)<input id="fuelPrice" type="number" min="0" max="2000" step="1" value="${fuelPrice}"></label></div><p class="input-help">Fuel price is a scenario input, not today’s pump price. Enter a realistic km/l figure for each actual car to calculate fuel cost.</p><div id="decision">${decision(cs)}</div><div class="compare-scroll"><table class="spec-table compare-table"><thead><tr><th scope="col">Your shortlist</th>${cs.map((c, i) => `<td>${imageHtml(c, 'compare-photo')}<h3>${esc(label(c))}</h3><span class="condition-pill ${c.condition}">${c.condition}</span><select aria-label="${esc(label(c))} variant" class="variant-select" data-compare-variant="${c.slug}">${c.variants.map((v, j) => `<option value="${j}" ${v === vs[i] ? 'selected' : ''}>${esc(v.name)}</option>`).join('')}</select></td>`).join('')}</tr></thead><tbody>${row('Source price', (c, i) => `<strong>${range(vs[i].price, vs[i].price_max ?? vs[i].price)}</strong><small>${esc(c.price_basis)}<br>${esc(c.market)}<br>Checked ${esc(vs[i].checked)}</small><a class="source-note" href="${link(vs[i].source)}" target="_blank" rel="noopener">View price evidence ↗</a>`)}${row('Your purchase price (lakh)', c => `<input aria-label="${esc(label(c))} purchase price in lakh" type="number" min="0.01" max="1000" step="0.00001" data-price="${c.slug}" value="${priceFor(c) / 100000}"><small>Editable quote / planning amount</small>`)}${row('Transaction allowance', () => `${lakh(p.fees)} lakh<small>Your input; not an official tax calculation</small>`)}${row('Initial repair reserve', c => `${c.condition === 'used' ? lakh(p.reserve) : '0.00'} lakh<small>${c.condition === 'used' ? 'Your used-car reserve assumption' : 'No repair reserve included; warranty is not a guarantee of zero costs'}</small>`)}${row('Estimated upfront total', c => `<span class="price-number" id="upfront-${c.slug}">${lakh(M.upfront(c, priceFor(c), p.fees, p.reserve))} lakh</span>`)}${row('Budget remaining', c => `<span id="remaining-${c.slug}"></span>`)}${row('Your fuel estimate (km/l)', c => `<input aria-label="${esc(label(c))} fuel economy" type="number" min="1" max="60" step="0.5" placeholder="Enter measured km/l" data-economy="${c.slug}" value="${economies[keyFor(c)] ?? ''}"><small>Your assumption; no model-wide claim</small>`)}${row('Fuel cost / month', c => `<span id="fuel-${c.slug}"></span>`)}${row('Routine upkeep / year (PKR)', c => `<input aria-label="${esc(label(c))} annual upkeep" type="number" min="0" max="10000000" step="1000" placeholder="Enter estimate" data-maintenance="${c.slug}" value="${maintenance[keyFor(c)] ?? ''}"><small>Excludes the initial repair reserve above</small>`)}${row('First-year cash plan', c => `<strong id="yearcost-${c.slug}"></strong><small>Purchase + transaction + initial reserve + 12 months fuel + entered upkeep. Excludes insurance, financing, resale and depreciation.</small>`)}${row('Why consider it?', c => esc(c.advice.strength))}${row('Inspect / confirm', c => esc(c.advice.check))}${['Engine', 'Transmission', 'Fuel', ...keys].map(k => row(esc(k), (c, i) => esc({
-    Engine: vs[i].engine,
-    Transmission: vs[i].transmission,
-    Fuel: vs[i].fuel,
-    ...c.specs,
-    ...vs[i].specs
-  }[k] || 'Not recorded'))).join('')}</tbody></table></div><p class="source-note">Photos are representative model images, not a guarantee of the selected trim or condition. Source links may show sold or changed advertisements.</p>`);
-  updateCosts();
-}
-function updateCosts() {
-  if (!$('#decision')) return;
-  const cs = compare.map(car),
-    p = plan();
-  for (const c of cs) {
-    const total = M.upfront(c, priceFor(c), p.fees, p.reserve),
-      left = p.budget - total,
-      e = economies[keyFor(c)],
-      fuel = M.fuelCost(monthlyKm, fuelPrice, e),
-      upkeep = maintenance[keyFor(c)];
-    $('#upfront-' + c.slug).textContent = lakh(total) + ' lakh';
-    $('#remaining-' + c.slug).innerHTML = `<strong class="${left >= 0 ? 'good' : 'over'}">${left >= 0 ? lakh(left) + ' lakh left' : lakh(-left) + ' lakh over'}</strong>`;
-    $('#fuel-' + c.slug).textContent = fuel === null ? 'Enter km/l to calculate' : 'PKR ' + money(fuel);
-    $('#yearcost-' + c.slug).textContent = fuel === null || upkeep === undefined ? 'Enter km/l and annual upkeep' : 'PKR ' + money(total + fuel * 12 + upkeep);
-  }
-  $('#decision').innerHTML = decision(cs);
-}
-function addCompare(slug) {
-  if (!compare.includes(slug)) {
-    if (compare.length === 3) {
-      toast('You can compare up to three cars. Remove one first.');
-      return;
-    }
-    compare.push(slug);
-  }
-  render();
-  toast(`${car(slug).name} added. ${compare.length}/3 selected.`);
-}
-document.addEventListener('click', e => {
-  const d = e.target.closest('[data-detail]');
-  if (d) detail(d.dataset.detail);
-  const a = e.target.closest('[data-addcompare]');
-  if (a) addCompare(a.dataset.addcompare);
-  const s = e.target.closest('[data-save]');
-  if (s) {
-    const slug = s.dataset.save;
-    saved = saved.includes(slug) ? saved.filter(x => x !== slug) : [...saved, slug];
-    try {
-      localStorage.setItem('pakautohub-saved', JSON.stringify(saved));
-    } catch {
-      toast('Saved for this session; browser storage is unavailable.');
-    }
-    render();
-  }
-  const b = e.target.closest('[data-body]');
-  if (b) {
-    body = b.dataset.body;
-    document.querySelectorAll('[data-body]').forEach(x => x.classList.toggle('selected', x === b));
-    render();
-  }
-  const brandButton = e.target.closest('[data-brand]');
-  if (brandButton) {
-    brand = brandButton.dataset.brand;
-    render();
-  }
-  if (e.target.id === 'resetFilters') reset();
-});
-document.addEventListener('change', e => {
-  const t = e.target;
-  if (t.dataset.compare) {
-    const slug = t.dataset.compare;
-    if (t.checked) {
-      if (compare.length === 3) {
-        t.checked = false;
-        toast('You can compare up to three cars.');
-        return;
-      }
-      compare.push(slug);
-    } else compare = compare.filter(x => x !== slug);
-    render();
-  }
-  if (t.dataset.variant) {
-    variants[t.dataset.variant] = Number(t.value);
-    detail(t.dataset.variant);
-  }
-  if (t.dataset.compareVariant) {
-    variants[t.dataset.compareVariant] = Number(t.value);
-    comparison();
-  }
-});
-document.addEventListener('input', e => {
-  const t = e.target;
-  if (t.dataset.price || t.dataset.economy || t.dataset.maintenance) {
-    if (!t.checkValidity() || t.dataset.price && t.value === '') {
-      t.classList.add('invalid');
-      return;
-    }
-    t.classList.remove('invalid');
-    if (t.dataset.price) overrides[keyFor(car(t.dataset.price))] = Number(t.value) * 100000;
-    if (t.dataset.economy) {
-      const k = keyFor(car(t.dataset.economy));
-      if (t.value === '') delete economies[k];else economies[k] = Number(t.value);
-    }
-    if (t.dataset.maintenance) {
-      const k = keyFor(car(t.dataset.maintenance));
-      if (t.value === '') delete maintenance[k];else maintenance[k] = Number(t.value);
-    }
-    updateCosts();
-  }
-  if (t.id === 'monthlyKm' || t.id === 'fuelPrice') {
-    if (!t.checkValidity() || t.value === '') return;
-    if (t.id === 'monthlyKm') monthlyKm = Number(t.value);else fuelPrice = Number(t.value);
-    updateCosts();
-  }
-});
-$('#search').addEventListener('input', render);
-$('#budget').addEventListener('input', render);
-['condition', 'year', 'sort'].forEach(id => $('#' + id).addEventListener('change', render));
-$('#closeModal').onclick = () => $('#modal').close();
-$('#modal').addEventListener('click', e => {
-  if (e.target === $('#modal')) {
-    const r = $('#modal').getBoundingClientRect();
-    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) $('#modal').close();
-  }
-});
-$('#savedNav').onclick = () => {
-  savedOnly = !savedOnly;
-  render();
-  $('#catalogue').scrollIntoView();
-};
-$('#showAll').onclick = reset;
-$('#navCompare').onclick = comparison;
-$('#openCompare').onclick = comparison;
-$('#clearCompare').onclick = () => {
-  compare = [];
-  render();
-};
-$('#findBudget').onclick = () => {
-  if (['totalBudget', 'fees', 'reserve'].some(id => !$('#' + id).reportValidity())) return;
-  budgetResults();
-};
-['totalBudget', 'fees', 'reserve', 'priority'].forEach(id => $('#' + id).addEventListener('change', () => {
-  if (['totalBudget', 'fees', 'reserve'].every(x => $('#' + x).checkValidity())) budgetResults();
-}));
-$('#example30').onclick = () => {
-  $('#totalBudget').value = 30;
-  $('#fees').value = .5;
-  $('#reserve').value = 2;
-  $('#priority').value = 'family';
-  compare = ['suzuki-alto', 'honda-city-2013', 'toyota-corolla-2010'];
-  budgetResults();
-  render();
-  comparison();
-};
-$('#aboutBtn').onclick = () => show(`<div class="about"><div class="eyebrow">A UNIVERSITY PROJECT BY AAIEZ</div><h2>New cars. Older favourites. One budget.</h2><p>Browse ${cars.length} model-year entries across Toyota, Honda, Suzuki and Hyundai. Company tabs, condition and year filters help you compare the right generation.</p><h3>Where the prices come from</h3><p>Used prices were researched on 10 October 2026 from the linked asking-price examples and listing groups. Each entry states its city and sample scope. They are not completed-sale values, guaranteed valuations or live inventory. New Suzuki and Toyota prices were checked against manufacturer pages; new Honda entries retain the supplied 5 October 2026 snapshot.</p><h3>How the suggestion works</h3><p>The budget finder considers your chosen body-style / new-car preference and upfront cost. It does not invent a reliability or safety score. Lower-priced used examples may fit even when the upper range does not. Comparison prices default to a range midpoint until you enter an actual quote.</p><h3>Your planning inputs</h3><p>The 0.5-lakh transaction allowance, 2-lakh used repair reserve, 1,000 km/month and PKR 300/litre are editable scenario assumptions. They are not official tax calculations, repair quotes or a live petrol price. Fuel costs only calculate once you supply a km/l figure; yearly cash plans also require your upkeep estimate.</p><h3>Photos and privacy</h3><p>Original manufacturer images and third-party model-year photos are representative; trim and condition may differ. Some external photos may be unavailable. Saved cars stay in this browser, with no account or cross-device sync.</p><a href="catalogue.json" download="pakautohub-catalogue.json">Download catalogue and source links ↗</a></div>`);
-fetch('catalogue.json').then(r => {
-  if (!r.ok) throw Error('Catalogue unavailable');
-  return r.json();
-}).then(d => {
-  cars = d.cars;
-  saved = saved.filter(s => car(s));
-  $('#year').innerHTML = '<option value="">All years</option>' + [...new Set(cars.map(c => c.year))].sort((a, b) => b - a).map(y => `<option>${y}</option>`).join('');
-  render();
-  budgetResults();
-}).catch(() => {
-  $('#cars').innerHTML = '<div class="empty"><h3>The catalogue could not load.</h3><p>Please refresh to try again.</p></div>';
-});
+const $=s=>document.querySelector(s),M=CarMath;let cars=[],body='',brand='',savedOnly=false,compare=[],variants={},overrides={},economies={},maintenance={},saved=[];let monthlyKm=1000,fuelPrice=300;
+try{saved=JSON.parse(localStorage.getItem('pakautohub-saved')||'[]');if(!Array.isArray(saved))saved=[]}catch{}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const money=n=>new Intl.NumberFormat('en-PK',{maximumFractionDigits:0}).format(n);const lakh=n=>(n/100000).toFixed(2);const car=s=>cars.find(c=>c.slug===s);const link=u=>/^https:\/\//.test(u)?esc(u):'#';const vFor=c=>c.variants[variants[c.slug]||0];const keyFor=c=>c.slug+':'+(variants[c.slug]||0);const priceFor=c=>overrides[keyFor(c)]??M.midpoint(vFor(c));const label=c=>`${c.brand} ${c.name} ${c.condition==='used'?c.year:'· New'}`;const range=(lo,hi)=>lakh(lo)+(hi>lo?'–'+lakh(hi):'')+' lakh';
+let toastTimer;function toast(t){$('#toast').textContent=t;$('#toast').style.opacity=1;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').style.opacity=0,3000)}
+function plan(){return{budget:M.num($('#totalBudget').value,30)*100000,fees:M.num($('#fees').value,.5)*100000,reserve:M.num($('#reserve').value,2)*100000,priority:$('#priority').value}}
+function imageHtml(c,cls=''){return `<div class="${cls}"><img src="${esc(c.image)}" alt="${esc(label(c))} — representative model photo" loading="lazy"><div class="image-fallback"><strong>${esc(c.name)}</strong><small>${c.year} · Photo unavailable</small></div></div>`}
+function photoErrors(){document.querySelectorAll('img').forEach(img=>{img.onerror=()=>{img.parentElement.classList.add('missing-image');img.alt='Photo unavailable';};if(img.complete&&!img.naturalWidth)img.onerror()})}
+function sourceHtml(c){return `<div class="sources-list">${c.sources.map(s=>`<a href="${link(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a>`).join('<br>')}</div>`}
+function renderBrands(){const names=['','Toyota','Honda','Suzuki','Hyundai'];$('#brandTabs').innerHTML=names.map(n=>`<button role="tab" aria-selected="${brand===n}" class="brand-tab" data-brand="${n}">${n||'All companies'}<span>${cars.filter(c=>!n||c.brand===n).length} cars</span></button>`).join('')}
+function render(){const f={q:$('#search').value.trim(),brand,body,condition:$('#condition').value,year:$('#year').value,budget:M.num($('#budget').value)*100000,savedOnly,saved};let list=cars.filter(c=>M.matches(c,f));const sort=$('#sort').value;if(sort==='low')list.sort((a,b)=>M.minPrice(a)-M.minPrice(b));if(sort==='high')list.sort((a,b)=>M.minPrice(b)-M.minPrice(a));if(sort==='name')list.sort((a,b)=>label(a).localeCompare(label(b)));$('#resultCount').textContent=`${list.length} entries`;$('#savedNotice').hidden=!savedOnly;$('#savedCount').textContent=saved.length;$('#compareCount').textContent=compare.length;renderBrands();$('#cars').innerHTML=list.length?list.map(c=>`<article class="car ${c.condition}"><div class="car-photo"><span class="tag">${esc(c.body)}</span><button class="heart ${saved.includes(c.slug)?'on':''}" data-save="${c.slug}" aria-label="${saved.includes(c.slug)?'Unsave':'Save'} ${esc(label(c))}" aria-pressed="${saved.includes(c.slug)}">${saved.includes(c.slug)?'♥':'♡'}</button><img src="${esc(c.image)}" alt="${esc(label(c))}" loading="lazy"><div class="image-fallback"><strong>${esc(c.name)}</strong><small>${c.year} · Photo unavailable</small></div></div><div class="car-info"><span class="condition-pill ${c.condition}">${c.condition==='used'?'Used · '+c.year:'New car'}</span><div class="car-brand">${esc(c.brand)}</div><div class="car-title"><h3>${esc(c.name)}<small>${c.condition==='used'?c.year+' model':c.year+' catalogue'}</small></h3><span>${c.variants.length>1?c.variants.length+' variants':''}</span></div><div class="spec-mini"><span>◈ ${esc(c.variants[0].engine.split(' ·')[0])}</span><span>◇ ${esc(c.variants[0].fuel)}</span></div><div class="car-price"><small>${c.condition==='used'?'OBSERVED ASKING PRICES':'STARTING FROM'}</small><strong>${c.condition==='used'?range(M.minPrice(c),M.maxPrice(c)):'<span>PKR</span> '+money(M.minPrice(c))}</strong><div class="range">${c.condition==='used'?'PKR · not a guaranteed valuation':range(M.minPrice(c),M.maxPrice(c))}</div></div><div class="market-note">${esc(c.market)}<br>Price checked ${esc(c.variants[0].checked)}</div><div class="card-actions"><button class="details" data-detail="${c.slug}">View details <span>↗</span></button><label class="compare-check"><input type="checkbox" data-compare="${c.slug}" ${compare.includes(c.slug)?'checked':''}>Compare</label></div></div></article>`).join(''):`<div class="empty"><h3>${savedOnly?'No saved cars match.':'No cars match these filters.'}</h3><p>Try another company, model year or budget.</p><button id="resetFilters">Reset all filters ↗</button></div>`;$('#compareTray').hidden=!compare.length;$('#trayText').textContent=`${compare.length} / 3 cars selected`;document.dispatchEvent(new CustomEvent('pakautohub:state',{detail:{savedCount:saved.length,compareCount:compare.length,savedOnly}}));photoErrors()}
+function reset(){body='';brand='';savedOnly=false;['search','condition','budget','year'].forEach(id=>$('#'+id).value='');$('#sort').value='featured';document.querySelectorAll('[data-body]').forEach(b=>b.classList.toggle('selected',!b.dataset.body));render()}
+function show(html){$('#modalContent').innerHTML=html;if(!$('#modal').open)$('#modal').showModal();photoErrors()}
+function detail(slug){const c=car(slug);if(!c)return;const v=vFor(c);show(`<div class="detail-hero"><div>${imageHtml(c,'detail-photo')}<p class="source-note">${esc(c.image_caption)} <a href="${link(c.image_source)}" target="_blank" rel="noopener">Photo source ↗</a></p></div><div><span class="condition-pill ${c.condition}">${c.condition} · ${c.year}</span><div class="eyebrow">${esc(c.brand)} / ${esc(c.body)}</div><h2>${esc(c.brand+' '+c.name)}</h2><p>${esc(c.description)}</p><label for="detailVariant">${c.condition==='used'?'Price sample / trim scope':'Choose a variant'}</label><select id="detailVariant" class="variant-select" data-variant="${slug}">${c.variants.map((x,i)=>`<option value="${i}" ${x===v?'selected':''}>${esc(x.name)}</option>`).join('')}</select><div class="detail-price">${c.condition==='used'?range(v.price,v.price_max??v.price):'PKR '+money(v.price)}</div><p class="source-note">${esc(c.price_basis)}<br>${esc(c.market)} · checked ${esc(v.checked)}<br>${c.condition==='used'?'Sample listings may no longer be available. Inspect and negotiate the individual car.':'Base price excludes additional on-road costs. Confirm a current dealer quotation.'}</p>${sourceHtml(c)}<button class="primary" data-addcompare="${c.slug}">Add to comparison ↗</button></div></div><div class="advice-grid"><div><h3>Why consider it?</h3><p>${esc(c.advice.strength)}</p></div><div><h3>Before you decide</h3><p>${esc(c.advice.check)}</p></div></div><h3>Recorded specifications</h3><p class="source-note">Used-car equipment is not independently inspected. Unrecorded features remain unknown.</p><table class="spec-table"><tbody>${Object.entries({'Model year':c.year,'Condition':c.condition,'Engine':v.engine,'Transmission':v.transmission,'Fuel':v.fuel,...c.specs,...v.specs}).map(([k,val])=>`<tr><th scope="row">${esc(k)}</th><td>${esc(val)}</td></tr>`).join('')}</tbody></table>`)}
+function budgetResults(){const p=plan();if(p.budget<=0){$('#budgetResults').innerHTML='<p>Please enter a budget above zero.</p>';return}const list=M.shortlist(cars,p),newCars=cars.filter(c=>c.condition==='new'),nearestNew=newCars.sort((a,b)=>M.minPrice(a)-M.minPrice(b))[0];const nStatus=M.budgetStatus(nearestNew,p.budget,p.fees,p.reserve);const priorities={family:'Sedans are prioritised for your family-space preference; this is a body-style preference, not a measured comfort rating.',city:'Hatchbacks are prioritised for your city-size preference; fuel use is not assumed.',new:'New cars are prioritised when the stated budget plus allowances permits.',budget:'Options are sorted by their lowest estimated upfront outlay.'};$('#budgetResults').innerHTML=`<div class="budget-summary"><strong>${lakh(p.budget)} lakh total budget</strong><br>${priorities[p.priority]}<br>${nStatus.fit==='over'?`Lowest new-car entry needs ${lakh(nStatus.low)} lakh including your transaction allowance (${esc(nearestNew.name)}). No new entry fits this total budget with the current allowance.`:'New and used entries are assessed using the same transaction allowance.'}</div><div class="recommendations">${list.map(x=>`<div class="recommendation"><div><h3>${esc(label(x.c))}</h3><p>Purchase ${range(M.minPrice(x.c),M.maxPrice(x.c))} · With allowances ${range(x.low,x.high)}</p><p>${x.fit==='partial'?'Only lower-priced examples may fit; the upper range exceeds your budget.':'Full observed range fits your planning budget.'}</p></div><button data-addcompare="${x.c.slug}">Compare +</button></div>`).join('')||'<p>No entries fit. Increase the budget or revise your allowances; do not remove a reserve without considering repair risk.</p>'}</div><p class="input-help">Shortlist uses body style, condition and price only. It does not rate mechanical condition, crash safety, resale or reliability. Source locations differ; this is not a Faisalabad valuation.</p>`}
+function decision(cs){const p=plan();const fits=cs.filter(c=>M.upfront(c,priceFor(c),p.fees,p.reserve)<=p.budget);const ranked=[...fits].sort((a,b)=>{const pref=c=>p.priority==='family'?c.body==='Sedan':p.priority==='city'?c.body==='Hatchback':p.priority==='new'?c.condition==='new':false;return Number(pref(b))-Number(pref(a))||M.upfront(a,priceFor(a),p.fees,p.reserve)-M.upfront(b,priceFor(b),p.fees,p.reserve)});const best=ranked[0],priorityText={family:'your sedan / family-space preference',city:'your hatchback / city-size preference',new:'your preference for a new car',budget:'the lowest upfront cost'};return `<div class="decision"><h3>${best?esc(label(best))+' is worth shortlisting.':'None fits your total budget yet.'}</h3><p>${best?`Among the selected cars, this is the closest match using ${priorityText[p.priority]} and your entered costs. Planned upfront total: <strong>${lakh(M.upfront(best,priceFor(best),p.fees,p.reserve))} lakh</strong>. ${esc(best.advice.strength)}`:'The entered purchase prices plus allowances exceed your budget. Try a lower quoted price, a different car, or a higher budget.'}</p><p>${best?esc(best.advice.check):''} This is a transparent planning suggestion, not an inspection or a reliability score. Compare the actual car’s condition and safety equipment before buying.</p></div>`}
+function comparison(){if(compare.length<2){toast('Select at least two cars to compare.');return}const cs=compare.map(car),vs=cs.map(vFor),p=plan(),keys=[...new Set(cs.flatMap((c,i)=>Object.keys({...c.specs,...vs[i].specs})))];const row=(name,fn)=>`<tr><th scope="row">${name}</th>${cs.map((c,i)=>`<td>${fn(c,i)}</td>`).join('')}</tr>`;show(`<h2>New or used. Make the comparison yours.</h2><p class="source-note">Your budget: <strong>${lakh(p.budget)} lakh</strong> · Priority: ${esc($('#priority').selectedOptions[0].textContent)}. Change these in the budget finder. Used prices start at the midpoint of the observed range; replace them with actual seller quotes.</p><div class="compare-setup"><label>Distance / month (km)<input id="monthlyKm" type="number" min="0" max="100000" step="100" value="${monthlyKm}"></label><label>Petrol price (PKR/litre)<input id="fuelPrice" type="number" min="0" max="2000" step="1" value="${fuelPrice}"></label></div><p class="input-help">Fuel price is a scenario input, not today’s pump price. Enter a realistic km/l figure for each actual car to calculate fuel cost.</p><div id="decision">${decision(cs)}</div><p class="compare-hint">Swipe sideways to compare all cars ↔</p><div class="compare-scroll"><table class="spec-table compare-table"><thead><tr><th scope="col">Your shortlist</th>${cs.map((c,i)=>`<td>${imageHtml(c,'compare-photo')}<h3>${esc(label(c))}</h3><span class="condition-pill ${c.condition}">${c.condition}</span><select aria-label="${esc(label(c))} variant" class="variant-select" data-compare-variant="${c.slug}">${c.variants.map((v,j)=>`<option value="${j}" ${v===vs[i]?'selected':''}>${esc(v.name)}</option>`).join('')}</select></td>`).join('')}</tr></thead><tbody>${row('Source price', (c,i)=>`<strong>${range(vs[i].price,vs[i].price_max??vs[i].price)}</strong><small>${esc(c.price_basis)}<br>${esc(c.market)}<br>Checked ${esc(vs[i].checked)}</small><a class="source-note" href="${link(vs[i].source)}" target="_blank" rel="noopener">View price evidence ↗</a>`)}${row('Your purchase price (lakh)',c=>`<input aria-label="${esc(label(c))} purchase price in lakh" type="number" min="0.01" max="1000" step="0.00001" data-price="${c.slug}" value="${priceFor(c)/100000}"><small>Editable quote / planning amount</small>`)}${row('Transaction allowance',()=>`${lakh(p.fees)} lakh<small>Your input; not an official tax calculation</small>`)}${row('Initial repair reserve',c=>`${c.condition==='used'?lakh(p.reserve):'0.00'} lakh<small>${c.condition==='used'?'Your used-car reserve assumption':'No repair reserve included; warranty is not a guarantee of zero costs'}</small>`)}${row('Estimated upfront total',c=>`<span class="price-number" id="upfront-${c.slug}">${lakh(M.upfront(c,priceFor(c),p.fees,p.reserve))} lakh</span>`)}${row('Budget remaining',c=>`<span id="remaining-${c.slug}"></span>`)}${row('Your fuel estimate (km/l)',c=>`<input aria-label="${esc(label(c))} fuel economy" type="number" min="1" max="60" step="0.5" placeholder="Enter measured km/l" data-economy="${c.slug}" value="${economies[keyFor(c)]??''}"><small>Your assumption; no model-wide claim</small>`)}${row('Fuel cost / month',c=>`<span id="fuel-${c.slug}"></span>`)}${row('Routine upkeep / year (PKR)',c=>`<input aria-label="${esc(label(c))} annual upkeep" type="number" min="0" max="10000000" step="1000" placeholder="Enter estimate" data-maintenance="${c.slug}" value="${maintenance[keyFor(c)]??''}"><small>Excludes the initial repair reserve above</small>`)}${row('First-year cash plan',c=>`<strong id="yearcost-${c.slug}"></strong><small>Purchase + transaction + initial reserve + 12 months fuel + entered upkeep. Excludes insurance, financing, resale and depreciation.</small>`)}${row('Why consider it?',c=>esc(c.advice.strength))}${row('Inspect / confirm',c=>esc(c.advice.check))}${['Engine','Transmission','Fuel',...keys].map(k=>row(esc(k),(c,i)=>esc(({Engine:vs[i].engine,Transmission:vs[i].transmission,Fuel:vs[i].fuel,...c.specs,...vs[i].specs})[k]||'Not recorded'))).join('')}</tbody></table></div><p class="source-note">Photos are representative model images, not a guarantee of the selected trim or condition. Source links may show sold or changed advertisements.</p>`);updateCosts()}
+function updateCosts(){if(!$('#decision'))return;const cs=compare.map(car),p=plan();for(const c of cs){const total=M.upfront(c,priceFor(c),p.fees,p.reserve),left=p.budget-total,e=economies[keyFor(c)],fuel=M.fuelCost(monthlyKm,fuelPrice,e),upkeep=maintenance[keyFor(c)];$('#upfront-'+c.slug).textContent=lakh(total)+' lakh';$('#remaining-'+c.slug).innerHTML=`<strong class="${left>=0?'good':'over'}">${left>=0?lakh(left)+' lakh left':lakh(-left)+' lakh over'}</strong>`;$('#fuel-'+c.slug).textContent=fuel===null?'Enter km/l to calculate':'PKR '+money(fuel);$('#yearcost-'+c.slug).textContent=fuel===null||upkeep===undefined?'Enter km/l and annual upkeep':'PKR '+money(total+fuel*12+upkeep)}$('#decision').innerHTML=decision(cs)}
+function addCompare(slug){if(!compare.includes(slug)){if(compare.length===3){toast('You can compare up to three cars. Remove one first.');return}compare.push(slug)}render();toast(`${car(slug).name} added. ${compare.length}/3 selected.`)}
+document.addEventListener('click',e=>{const d=e.target.closest('[data-detail]');if(d)detail(d.dataset.detail);const a=e.target.closest('[data-addcompare]');if(a)addCompare(a.dataset.addcompare);const s=e.target.closest('[data-save]');if(s){const slug=s.dataset.save;saved=saved.includes(slug)?saved.filter(x=>x!==slug):[...saved,slug];try{localStorage.setItem('pakautohub-saved',JSON.stringify(saved))}catch{toast('Saved for this session; browser storage is unavailable.')}render()}const b=e.target.closest('[data-body]');if(b){body=b.dataset.body;document.querySelectorAll('[data-body]').forEach(x=>x.classList.toggle('selected',x===b));render()}const brandButton=e.target.closest('[data-brand]');if(brandButton){brand=brandButton.dataset.brand;render()}if(e.target.id==='resetFilters')reset()});
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset.compare){const slug=t.dataset.compare;if(t.checked){if(compare.length===3){t.checked=false;toast('You can compare up to three cars.');return}compare.push(slug)}else compare=compare.filter(x=>x!==slug);render()}if(t.dataset.variant){variants[t.dataset.variant]=Number(t.value);detail(t.dataset.variant)}if(t.dataset.compareVariant){variants[t.dataset.compareVariant]=Number(t.value);comparison()}});
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.price||t.dataset.economy||t.dataset.maintenance){if(!t.checkValidity()||(t.dataset.price&&t.value==='')){t.classList.add('invalid');return}t.classList.remove('invalid');if(t.dataset.price)overrides[keyFor(car(t.dataset.price))]=Number(t.value)*100000;if(t.dataset.economy){const k=keyFor(car(t.dataset.economy));if(t.value==='')delete economies[k];else economies[k]=Number(t.value)}if(t.dataset.maintenance){const k=keyFor(car(t.dataset.maintenance));if(t.value==='')delete maintenance[k];else maintenance[k]=Number(t.value)}updateCosts()}if(t.id==='monthlyKm'||t.id==='fuelPrice'){if(!t.checkValidity()||t.value==='')return;if(t.id==='monthlyKm')monthlyKm=Number(t.value);else fuelPrice=Number(t.value);updateCosts()}});
+document.addEventListener('pakautohub:show-all',()=>{savedOnly=false;render()});
+$('#search').addEventListener('input',render);$('#budget').addEventListener('input',render);['condition','year','sort'].forEach(id=>$('#'+id).addEventListener('change',render));$('#closeModal').onclick=()=>$('#modal').close();$('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=$('#modal').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('#modal').close()}});$('#savedNav').onclick=()=>{savedOnly=!savedOnly;render();$('#catalogue').scrollIntoView()};$('#showAll').onclick=reset;$('#navCompare').onclick=comparison;$('#openCompare').onclick=comparison;$('#clearCompare').onclick=()=>{compare=[];render()};$('#findBudget').onclick=()=>{if(['totalBudget','fees','reserve'].some(id=>!$('#'+id).reportValidity()))return;budgetResults()};['totalBudget','fees','reserve','priority'].forEach(id=>$('#'+id).addEventListener('change',()=>{if(['totalBudget','fees','reserve'].every(x=>$('#'+x).checkValidity()))budgetResults()}));$('#example30').onclick=()=>{$('#totalBudget').value=30;$('#fees').value=.5;$('#reserve').value=2;$('#priority').value='family';compare=['suzuki-alto','honda-city-2013','toyota-corolla-2010'];budgetResults();render();comparison()};
+$('#aboutBtn').onclick=()=>show(`<div class="about"><div class="eyebrow">A UNIVERSITY PROJECT BY AAIEZ</div><h2>New cars. Older favourites. One budget.</h2><p>Browse ${cars.length} model-year entries across Toyota, Honda, Suzuki and Hyundai. Company tabs, condition and year filters help you compare the right generation.</p><h3>Where the prices come from</h3><p>Used prices were researched on 10 October 2026 from the linked asking-price examples and listing groups. Each entry states its city and sample scope. They are not completed-sale values, guaranteed valuations or live inventory. New Suzuki and Toyota prices were checked against manufacturer pages; new Honda entries retain the supplied 5 October 2026 snapshot.</p><h3>How the suggestion works</h3><p>The budget finder considers your chosen body-style / new-car preference and upfront cost. It does not invent a reliability or safety score. Lower-priced used examples may fit even when the upper range does not. Comparison prices default to a range midpoint until you enter an actual quote.</p><h3>Your planning inputs</h3><p>The 0.5-lakh transaction allowance, 2-lakh used repair reserve, 1,000 km/month and PKR 300/litre are editable scenario assumptions. They are not official tax calculations, repair quotes or a live petrol price. Fuel costs only calculate once you supply a km/l figure; yearly cash plans also require your upkeep estimate.</p><h3>Photos and privacy</h3><p>Original manufacturer images and third-party model-year photos are representative; trim and condition may differ. Some external photos may be unavailable. Saved cars stay in this browser, with no account or cross-device sync.</p><a href="catalogue.json" download="pakautohub-catalogue.json">Download catalogue and source links ↗</a></div>`);
+fetch('catalogue.json').then(r=>{if(!r.ok)throw Error('Catalogue unavailable');return r.json()}).then(d=>{cars=d.cars;saved=saved.filter(s=>car(s));$('#year').innerHTML='<option value="">All years</option>'+[...new Set(cars.map(c=>c.year))].sort((a,b)=>b-a).map(y=>`<option>${y}</option>`).join('');render();budgetResults()}).catch(()=>{$('#cars').innerHTML='<div class="empty"><h3>The catalogue could not load.</h3><p>Please refresh to try again.</p></div>'});
 
 
-==============================================================================
+============================================================================
 FILE: core.js
-==============================================================================
-(function (root) {
+============================================================================
+(function(root){
+'use strict';
+const minPrice=c=>Math.min(...c.variants.map(v=>v.price));
+const maxPrice=c=>Math.max(...c.variants.map(v=>v.price_max??v.price));
+const num=(x,f=0)=>Number.isFinite(Number(x))&&Number(x)>=0?Number(x):f;
+const midpoint=v=>(v.price+(v.price_max??v.price))/2;
+function upfront(c,price,fees,reserve){return num(price)+num(fees)+(c.condition==='used'?num(reserve):0)}
+function budgetStatus(c,budget,fees,reserve){const low=upfront(c,minPrice(c),fees,reserve),high=upfront(c,maxPrice(c),fees,reserve);return {low,high,fit:high<=budget?'within':low<=budget?'partial':'over'}}
+function fuelCost(km,price,economy){return Number(economy)>0&&Number.isFinite(Number(economy))?num(km)*num(price)/Number(economy):null}
+function matches(c,f){return (!f.q||(c.brand+' '+c.name+' '+c.year).toLowerCase().includes(f.q.toLowerCase()))&&(!f.brand||c.brand===f.brand)&&(!f.body||c.body===f.body)&&(!f.condition||c.condition===f.condition)&&(!f.year||c.year===Number(f.year))&&(!f.budget||minPrice(c)<=f.budget)&&(!f.savedOnly||f.saved.includes(c.slug))}
+function shortlist(cars,p){return cars.map(c=>({c,...budgetStatus(c,p.budget,p.fees,p.reserve)})).filter(x=>x.fit!=='over').sort((a,b)=>{const score=x=>{let s=x.fit==='within'?4:0;if(p.priority==='new'&&x.c.condition==='new')s+=10;if(p.priority==='family'&&x.c.body==='Sedan')s+=10;if(p.priority==='city'&&x.c.body==='Hatchback')s+=10;return s};return score(b)-score(a)||a.low-b.low}).slice(0,3)}
+const api={minPrice,maxPrice,num,midpoint,upfront,budgetStatus,fuelCost,matches,shortlist};if(typeof module!=='undefined')module.exports=api;else root.CarMath=api;
+})(typeof window!=='undefined'?window:globalThis);
+
+
+============================================================================
+FILE: pwa.js
+============================================================================
+/* Installation, offline status and phone navigation; no app-store account needed. */
+(() => {
   'use strict';
+  const $ = id => document.getElementById(id);
+  const standaloneQuery = window.matchMedia('(display-mode: standalone)');
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const launchedStandalone = () => standaloneQuery.matches || navigator.standalone === true;
+  let installedHere = false;
+  let installPrompt = null;
+  let installInProgress = false;
+  let offlineReady = false;
+  let registration = null;
+  let refreshingForUpdate = false;
+  let savedView = false;
+  let lastNav = location.hash === '#budgetPlanner' ? 'budget' : 'cars';
 
-  const minPrice = c => Math.min(...c.variants.map(v => v.price));
-  const maxPrice = c => Math.max(...c.variants.map(v => v.price_max ?? v.price));
-  const num = (x, f = 0) => Number.isFinite(Number(x)) && Number(x) >= 0 ? Number(x) : f;
-  const midpoint = v => (v.price + (v.price_max ?? v.price)) / 2;
-  function upfront(c, price, fees, reserve) {
-    return num(price) + num(fees) + (c.condition === 'used' ? num(reserve) : 0);
+  function updateInstallationUI() {
+    const installed = launchedStandalone() || installedHere;
+    document.querySelectorAll('[data-install]').forEach(button => {
+      button.hidden = installed;
+      button.disabled = installInProgress;
+    });
+    $('appBanner').hidden = installed;
+    document.body.classList.toggle('installed-app', launchedStandalone());
   }
-  function budgetStatus(c, budget, fees, reserve) {
-    const low = upfront(c, minPrice(c), fees, reserve),
-      high = upfront(c, maxPrice(c), fees, reserve);
-    return {
-      low,
-      high,
-      fit: high <= budget ? 'within' : low <= budget ? 'partial' : 'over'
+
+  function updateConnectionUI() {
+    const offline = navigator.onLine === false;
+    $('connectionStatus').textContent = offline ? 'Offline' : 'Online';
+    $('connectionStatus').classList.toggle('offline', offline);
+    $('offlineHeading').textContent = offlineReady ? 'Offline catalogue ready' : 'Offline catalogue';
+    $('offlineDescription').textContent = offlineReady
+      ? 'Cars, saved favourites, comparison and budget tools work after opening this app once online. Some external listing photos and source links still need internet. Prices remain the dated catalogue snapshot.'
+      : 'Open this app with internet to save its catalogue and tools on this device. Keep the page open until offline setup completes.';
+  }
+
+  function platformInstructions(platform) {
+    document.querySelectorAll('[data-install-platform]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.installPlatform === platform));
+    });
+    const instructions = {
+      android: '<li>Open this website in <strong>Chrome</strong> on your Android phone.</li><li>Tap <strong>Install app</strong> on this page. If no prompt appears, open Chrome’s <strong>⋮ menu</strong> and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li><li>Confirm the installation, then open <strong>PakAutoHub</strong> from your phone’s app icon.</li>',
+      ios: '<li>Open this website in <strong>Safari</strong> on your iPhone.</li><li>Tap <strong>Share</strong> (the square with an upward arrow), then <strong>Add to Home Screen</strong>. On some Safari layouts, Share is inside the page menu.</li><li>Turn on <strong>Open as Web App</strong> if shown, then tap <strong>Add</strong>. Launch PakAutoHub from its new icon.</li>',
+      desktop: '<li>Open this website in <strong>Chrome or Edge</strong>.</li><li>Use the <strong>install icon</strong> in the address bar, or the browser menu’s app installation option.</li><li>For your phone, choose the <strong>Android</strong> or <strong>iPhone</strong> steps above.</li>'
     };
+    $('installSteps').innerHTML = instructions[platform] || instructions.desktop;
+    $('installTip').textContent = platform === 'ios'
+      ? 'iPhone installation is completed from Safari’s Share menu. The page cannot open Apple’s installation menu for you. After adding the icon, open the app once online to prepare its offline copy.'
+      : 'Use the live HTTPS website in a normal browser tab. A link opened inside WhatsApp or Instagram may need “Open in browser” first. If Chrome does not offer installation yet, reload once and use its menu.';
   }
-  function fuelCost(km, price, economy) {
-    return Number(economy) > 0 && Number.isFinite(Number(economy)) ? num(km) * num(price) / Number(economy) : null;
+
+  function showInstallationGuide() {
+    platformInstructions(isIOS ? 'ios' : isAndroid ? 'android' : 'desktop');
+    if (!$('installDialog').open) $('installDialog').showModal();
   }
-  function matches(c, f) {
-    return (!f.q || (c.brand + ' ' + c.name + ' ' + c.year).toLowerCase().includes(f.q.toLowerCase())) && (!f.brand || c.brand === f.brand) && (!f.body || c.body === f.body) && (!f.condition || c.condition === f.condition) && (!f.year || c.year === Number(f.year)) && (!f.budget || minPrice(c) <= f.budget) && (!f.savedOnly || f.saved.includes(c.slug));
+
+  async function requestInstallation() {
+    if (installInProgress || launchedStandalone() || installedHere) return;
+    if (!installPrompt) { showInstallationGuide(); return; }
+    const prompt = installPrompt;
+    installPrompt = null;
+    installInProgress = true;
+    updateInstallationUI();
+    try {
+      await prompt.prompt();
+      await prompt.userChoice;
+      // Acceptance starts installation; appinstalled or standalone launch confirms it.
+    } catch {
+      showInstallationGuide();
+    } finally {
+      installInProgress = false;
+      updateInstallationUI();
+    }
   }
-  function shortlist(cars, p) {
-    return cars.map(c => ({
-      c,
-      ...budgetStatus(c, p.budget, p.fees, p.reserve)
-    })).filter(x => x.fit !== 'over').sort((a, b) => {
-      const score = x => {
-        let s = x.fit === 'within' ? 4 : 0;
-        if (p.priority === 'new' && x.c.condition === 'new') s += 10;
-        if (p.priority === 'family' && x.c.body === 'Sedan') s += 10;
-        if (p.priority === 'city' && x.c.body === 'Hatchback') s += 10;
-        return s;
-      };
-      return score(b) - score(a) || a.low - b.low;
-    }).slice(0, 3);
+
+  window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    installPrompt = event;
+    updateInstallationUI();
+  });
+  window.addEventListener('appinstalled', () => {
+    installedHere = true;
+    installPrompt = null;
+    if ($('installDialog').open) $('installDialog').close();
+    updateInstallationUI();
+  });
+  standaloneQuery.addEventListener?.('change', updateInstallationUI);
+  document.querySelectorAll('[data-install]').forEach(button => button.addEventListener('click', requestInstallation));
+  document.querySelectorAll('[data-install-help]').forEach(button => button.addEventListener('click', showInstallationGuide));
+  document.querySelectorAll('[data-install-platform]').forEach(button => button.addEventListener('click', () => platformInstructions(button.dataset.installPlatform)));
+  $('closeInstall').addEventListener('click', () => $('installDialog').close());
+  $('installDialog').addEventListener('click', event => {
+    if (event.target !== $('installDialog')) return;
+    const bounds = $('installDialog').getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) $('installDialog').close();
+  });
+
+  function selectNavigation() {
+    const selected = lastNav === 'budget' ? 'budget' : savedView ? 'saved' : 'cars';
+    document.querySelectorAll('[data-app-nav]').forEach(button => {
+      const active = button.dataset.appNav === selected;
+      button.classList.toggle('selected', active);
+      if (active) button.setAttribute('aria-current', 'page');
+      else button.removeAttribute('aria-current');
+    });
   }
-  const api = {
-    minPrice,
-    maxPrice,
-    num,
-    midpoint,
-    upfront,
-    budgetStatus,
-    fuelCost,
-    matches,
-    shortlist
-  };
-  if (typeof module !== 'undefined') module.exports = api;else root.CarMath = api;
-})(typeof window !== 'undefined' ? window : globalThis);
+  $('mobileCars').addEventListener('click', () => {
+    savedView = false;
+    lastNav = 'cars';
+    document.dispatchEvent(new CustomEvent('pakautohub:show-all'));
+    selectNavigation();
+  });
+  $('mobileBudget').addEventListener('click', () => { lastNav = 'budget'; selectNavigation(); });
+  $('mobileSaved').addEventListener('click', () => { lastNav = 'cars'; $('savedNav').click(); });
+  $('mobileCompare').addEventListener('click', () => $('navCompare').click());
+  window.addEventListener('hashchange', () => {
+    if (location.hash === '#budgetPlanner') lastNav = 'budget';
+    if (location.hash === '#catalogue') lastNav = 'cars';
+    selectNavigation();
+  });
+  document.addEventListener('pakautohub:state', event => {
+    const state = event.detail;
+    $('mobileSavedCount').textContent = state.savedCount;
+    $('mobileSavedCount').hidden = state.savedCount === 0;
+    $('mobileCompareCount').textContent = state.compareCount;
+    $('mobileCompareCount').hidden = state.compareCount === 0;
+    const wasSavedView = savedView;
+    savedView = state.savedOnly;
+    if (savedView && !wasSavedView) lastNav = 'cars';
+    selectNavigation();
+  });
+
+  // Keep user-entered planning allowances on this device between app launches.
+  const planningFields = ['totalBudget', 'priority', 'fees', 'reserve'];
+  try {
+    const plan = JSON.parse(localStorage.getItem('pakautohub-plan-v1') || 'null');
+    if (plan && typeof plan === 'object' && !Array.isArray(plan)) {
+      planningFields.forEach(id => {
+        const element = $(id);
+        const value = plan[id];
+        if (typeof value !== 'string') return;
+        if (id === 'priority') {
+          if (Array.from(element.options).some(option => option.value === value)) element.value = value;
+        } else {
+          const previous = element.value;
+          element.value = value;
+          if (!element.value || !element.checkValidity()) element.value = previous;
+        }
+      });
+    }
+  } catch { /* Browser storage may be disabled. Session use still works. */ }
+  planningFields.forEach(id => $(id).addEventListener('change', () => {
+    if (!planningFields.every(field => $(field).checkValidity())) return;
+    try {
+      localStorage.setItem('pakautohub-plan-v1', JSON.stringify(Object.fromEntries(planningFields.map(field => [field, $(field).value]))));
+    } catch { /* Do not block the calculator when storage is unavailable. */ }
+  }));
+
+  function requestOfflineStatus(worker) {
+    if (!worker || typeof MessageChannel === 'undefined') return;
+    const channel = new MessageChannel();
+    const timeout = setTimeout(() => channel.port1.close(), 5000);
+    channel.port1.onmessage = event => {
+      clearTimeout(timeout);
+      channel.port1.close();
+      offlineReady = event.data?.ready === true;
+      updateConnectionUI();
+    };
+    worker.postMessage({ type: 'GET_OFFLINE_STATUS' }, [channel.port2]);
+  }
+
+  function showUpdate() { $('updateBanner').hidden = false; }
+  $('applyUpdate').addEventListener('click', () => {
+    if (!registration?.waiting) { location.reload(); return; }
+    refreshingForUpdate = true;
+    $('applyUpdate').disabled = true;
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+  });
+
+  async function setupOffline() {
+    if (!('serviceWorker' in navigator) || !window.isSecureContext) {
+      $('offlineDescription').textContent = 'Offline setup needs a supported browser and the live HTTPS website (or localhost for development).';
+      return;
+    }
+    navigator.serviceWorker.addEventListener('message', event => {
+      if (event.data?.type === 'OFFLINE_READY') { offlineReady = true; updateConnectionUI(); }
+    });
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshingForUpdate) { location.reload(); return; }
+      requestOfflineStatus(navigator.serviceWorker.controller);
+    });
+    try {
+      registration = await navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' });
+      if (registration.waiting) showUpdate();
+      registration.addEventListener('updatefound', () => {
+        const incoming = registration.installing;
+        incoming?.addEventListener('statechange', () => {
+          if (incoming.state === 'installed' && navigator.serviceWorker.controller) showUpdate();
+        });
+      });
+      navigator.serviceWorker.ready.then(ready => requestOfflineStatus(ready.active));
+    } catch {
+      $('offlineDescription').textContent = 'Offline setup did not complete. You can still use the catalogue online; reopen this page with internet to try again.';
+    }
+  }
+  window.addEventListener('offline', updateConnectionUI);
+  window.addEventListener('online', () => {
+    updateConnectionUI();
+    registration?.update().catch(() => {});
+  });
+  updateInstallationUI();
+  updateConnectionUI();
+  selectNavigation();
+  setupOffline();
+})();
 
 
-==============================================================================
+============================================================================
+FILE: sw.js
+============================================================================
+/* Increase CACHE_VERSION whenever a release changes app files or catalogue data. */
+const CACHE_VERSION = '2026-10-11.1';
+const BASE = new URL(self.registration.scope);
+const CACHE_PREFIX = 'pakautohub-' + encodeURIComponent(BASE.pathname) + '-';
+const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
+const CORE_ASSETS = [
+  './', 'index.html', 'style.css', 'pwa.css', 'core.js', 'app.js', 'pwa.js',
+  'catalogue.json', 'manifest.webmanifest', 'icons/icon.svg',
+  'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png',
+  'icons/apple-touch-icon.png', 'icons/favicon-32.png'
+];
+const PHOTO_ASSETS = [
+  'cars/alto.png', 'cars/city.webp', 'cars/civic-oriel.webp',
+  'cars/civic-2010.jpg', 'cars/corolla.png', 'cars/cultus.png',
+  'cars/every.png', 'cars/fronx.png', 'cars/passo-2014.jpg',
+  'cars/swift.png', 'cars/yaris.png'
+];
+const absolute = path => new URL(path, BASE).href;
+const CORE_URLS = CORE_ASSETS.map(absolute);
+const OWN_URLS = new Set([...CORE_ASSETS, ...PHOTO_ASSETS].map(absolute));
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const request = path => new Request(absolute(path), { cache: 'reload', credentials: 'same-origin' });
+    try {
+      // Required tools/data must all cache successfully before offline mode is ready.
+      await cache.addAll(CORE_ASSETS.map(request));
+    } catch (error) {
+      await caches.delete(CACHE_NAME);
+      throw error;
+    }
+    // A failed photograph must not prevent installation of the catalogue and tools.
+    await Promise.allSettled(PHOTO_ASSETS.map(path => cache.add(request(path))));
+    // Updated workers wait for the user's Refresh action or for old tabs to close.
+  })());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const names = await caches.keys();
+    await Promise.all(names.filter(name => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME).map(name => caches.delete(name)));
+    await self.clients.claim();
+    const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    clients.forEach(client => client.postMessage({ type: 'OFFLINE_READY', version: CACHE_VERSION }));
+  })());
+});
+
+async function cachedResource(request, cacheKey, event) {
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(cacheKey);
+  if (cached) return cached;
+  try {
+    const response = await fetch(request);
+    if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()).catch(() => {}));
+    return response;
+  } catch {
+    return new Response('This resource is unavailable offline. Open PakAutoHub once with internet.', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+    });
+  }
+}
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+  const url = new URL(request.url);
+  // External photos, price sources, fonts and other apps keep their normal requests.
+  if (url.origin !== BASE.origin || !url.pathname.startsWith(BASE.pathname)) return;
+  const clean = new URL(url.href);
+  clean.search = '';
+  clean.hash = '';
+  if (request.mode === 'navigate' && (clean.href === BASE.href || clean.href === absolute('index.html'))) {
+    event.respondWith(cachedResource(request, absolute('index.html'), event));
+  } else if (OWN_URLS.has(clean.href)) {
+    event.respondWith(cachedResource(request, clean.href, event));
+  }
+});
+
+self.addEventListener('message', event => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    event.waitUntil(self.skipWaiting());
+  } else if (event.data?.type === 'GET_OFFLINE_STATUS' && event.ports?.[0]) {
+    event.waitUntil((async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const found = await Promise.all(CORE_URLS.map(url => cache.match(url)));
+      event.ports[0].postMessage({ ready: found.every(Boolean), version: CACHE_VERSION });
+    })());
+  }
+});
+
+
+============================================================================
+FILE: manifest.webmanifest
+============================================================================
+{
+  "id": "./",
+  "name": "PakAutoHub — Cars & Budget",
+  "short_name": "PakAutoHub",
+  "description": "Explore new and used cars in Pakistan, compare your shortlist and plan your car budget.",
+  "lang": "en-PK",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8faf6",
+  "theme_color": "#145a46",
+  "categories": ["shopping", "lifestyle"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Explore cars", "short_name": "Cars", "url": "./#catalogue" },
+    { "name": "Find cars in my budget", "short_name": "Budget", "url": "./#budgetPlanner" }
+  ]
+}
+
+
+============================================================================
+FILE: icons/icon.svg
+============================================================================
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#145a46"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#d4f078" stroke-opacity=".15" stroke-width="2"/>
+  <path fill="#d4f078" d="M157 148h106c65 0 103 36 103 95s-38 96-103 96h-51v59h-55zm55 50v91h46c35 0 53-17 53-46s-18-45-53-45z"/>
+  <path d="M287 178l69-69m-56 0h56v56" fill="none" stroke="#f8faf6" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 423h223" stroke="#d4f078" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+</svg>
+
+
+============================================================================
 FILE: catalogue.json
-==============================================================================
+============================================================================
 {
   "cars": [
     {
@@ -3221,9 +1781,9 @@ FILE: catalogue.json
   }
 }
 
-==============================================================================
+============================================================================
 FILE: run_local.py
-==============================================================================
+============================================================================
 """Run PakAutoHub locally using Python standard library only."""
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer

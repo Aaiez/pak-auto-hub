@@ -1,0 +1,9 @@
+{
+  "site_version": 3,
+  "source_commit": "357f459eac451260a5d5c2b162b9681e7f1703e9",
+  "app_type": "PWA",
+  "live_url": "https://pakautohub-aaiez.sagetoad8.chatgpt.site",
+  "dataset_sha256": "7bf622833829aaeb77f3f765c4215e26dff9ed2242f3fe8d6c16ba62175933c3",
+  "automated_tests_passed": 9,
+  "physical_phone_installation_verified": false
+}

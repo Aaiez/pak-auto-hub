@@ -1,93 +1,39 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PakAutoHub — Find your next drive</title>
-<meta name="description" content="Explore Pakistan’s car catalogue. Compare specifications, browse variant prices and build your shortlist.">
-<link rel="stylesheet" href="style.css">
-<script defer src="core.js"></script>
-<script defer src="app.js"></script></head>
-<body>
-<header><a class="logo" href="#" aria-label="PakAutoHub home"><span class="logo-icon">P<span>↗</span></span>PakAuto<span>Hub</span><small>PAKISTAN</small></a>
-<nav aria-label="Main navigation"><a href="#catalogue" class="active">Explore cars</a><a href="#budgetPlanner">Budget finder</a><button id="navCompare">Compare <span id="compareCount">0</span></button><button id="savedNav">♡ Saved <span id="savedCount">0</span></button></nav></header>
-<main>
-<section class="hero">
-<div class="hero-copy">
-<div class="eyebrow"><span></span> YOUR NEXT CHAPTER, ON FOUR WHEELS</div>
-<h1>A better way to<br>find your <em>next drive.</em></h1>
-<p>A new hatchback or a pre-owned sedan?<br>Find what your budget can really buy.</p><a class="primary" href="#catalogue">Explore the catalogue <span>↗</span></a>
-<div class="hero-stats">
-<div><strong>19</strong><span>New & used entries</span></div>
-<div><strong>31</strong><span>Variants to explore</span></div>
-<div><strong>PKR</strong><span>Local pricing</span></div></div></div>
-<div class="hero-visual">
-<div class="round"></div><span class="backtype">SWIFT</span><img src="cars/swift.png" alt="Red Suzuki Swift" fetchpriority="high">
-<div class="feature-label"><span>THE CITY, REIMAGINED</span><strong>Suzuki Swift</strong><button data-detail="suzuki-swift">Discover the model ↗</button></div><span class="edition">THE PAKISTAN COLLECTION / 01</span></div></section>
-<section class="budget-planner" id="budgetPlanner">
-<div class="planner-intro">
-<div class="eyebrow">NEW OR USED? LET’S WORK IT OUT.</div>
-<h2>Your budget.<br>Your kind of car.</h2>
-<p>30 lakh mein new ya used?<br>Compare the purchase price and the money you’ll need to keep aside.</p><button class="preset" id="example30">Try the 30-lakh comparison ↗</button></div>
-<div class="planner-main">
-<div class="planner-inputs">
-<label>Total budget <span>PKR lakh</span>
-<input id="totalBudget" required type="number" value="30" min="1" max="1000" step="0.5"></label>
-<label>My priority<select id="priority">
-<option value="family">Family / sedan space</option>
-<option value="city">City / hatchback size</option>
-<option value="new">Prefer a new car</option>
-<option value="budget">Lowest purchase outlay</option></select></label>
-<label>Transaction allowance <span>lakh / car</span>
-<input id="fees" required type="number" value="0.5" min="0" max="100" step="0.1"></label>
-<label>Used-car repair reserve <span>lakh / car</span>
-<input id="reserve" required type="number" value="2" min="0" max="100" step="0.5"></label></div>
-<p class="input-help">Allowances are editable planning assumptions, not registration quotes or predicted repair bills. Used prices vary by city and condition.</p><button id="findBudget" class="primary">Find my options ↗</button>
-<div id="budgetResults" aria-live="polite"></div></div></section>
-<section class="catalogue" id="catalogue">
-<div class="section-heading">
-<div>
-<div class="eyebrow">FIND WHAT MOVES YOU</div>
-<h2>Explore the lineup<span>.</span></h2></div>
-<p>One place. All the details that matter.</p></div>
-<div class="brand-tabs" role="tablist" aria-label="Car company" id="brandTabs"></div>
-<div class="searchbar">
-<label class="search"><span>⌕</span>
-<input id="search" type="search" placeholder="Search a brand or model…" aria-label="Search cars"></label>
-<label>Condition<select id="condition">
-<option value="">New + used</option>
-<option value="new">New cars</option>
-<option value="used">Used cars</option></select></label>
-<label>Purchase budget (lakh)<input id="budget" type="number" min="0" max="1000" step="0.5" placeholder="Any budget"></label>
-<label>Sort by<select id="sort">
-<option value="featured">Featured</option>
-<option value="low">Price: low to high</option>
-<option value="high">Price: high to low</option>
-<option value="name">Name: A–Z</option></select></label></div>
-<div class="catalogue-toolbar">
-<div class="tabs" aria-label="Body type"><button class="selected" data-body="">All cars</button><button data-body="Hatchback">Hatchbacks</button><button data-body="Sedan">Sedans</button><button data-body="Crossover">Crossovers</button><button data-body="MPV">MPVs</button></div>
-<div class="year-filter">
-<label for="year">Model year</label>
-<select id="year">
-<option value="">All years</option></select><span id="resultCount" aria-live="polite"></span></div></div>
-<div id="savedNotice" hidden>Showing your saved cars on this browser. <button id="showAll">Show all cars</button></div>
-<div class="grid" id="cars">
-<p>Loading catalogue…</p></div>
-<p class="pricing-note">New prices: dated manufacturer snapshots. Used prices: linked asking-price samples, not guaranteed valuations or live inventory. Budget filters use the lowest purchase price, before allowances; use the budget finder for total cost.</p></section>
-<section class="confidence">
-<div><span class="number">01 /</span>
-<h3>The right model imagery</h3>
-<p>Manufacturer and representative listing photographs, with model year, source and trim differences clearly noted.</p></div>
-<div><span class="number">02 /</span>
-<h3>Details you can trace</h3>
-<p>View source links and the recorded date alongside each variant’s price and specifications.</p></div>
-<div><span class="number">03 /</span>
-<h3>Compare with clarity</h3>
-<p>Compare up to three new or used cars. Adjust asking prices, reserves and fuel assumptions to match your situation.</p></div></section></main>
-<footer><a class="logo" href="#">PakAuto<span>Hub</span></a>
-<p>A university project by Aaiez · Built for the road ahead.</p><button id="aboutBtn">About the catalogue ↗</button></footer>
-<div id="compareTray" hidden><span id="trayText"></span><button id="clearCompare">Clear</button><button class="primary" id="openCompare">Compare cars ↗</button></div>
-<dialog id="modal">
-<div class="modal-top"><span>PAKAUTOHUB / EXPLORE</span><button id="closeModal" aria-label="Close dialog">✕</button></div>
-<div id="modalContent"></div></dialog>
-<div id="toast" role="status"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>PakAutoHub — Find your next drive</title><meta name="description" content="Explore Pakistan’s car catalogue. Compare specifications, browse variant prices and build your shortlist."><link rel="stylesheet" href="style.css"><script defer src="core.js"></script>
+<meta name="theme-color" content="#145a46">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PakAutoHub">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="pwa.css">
+<script defer src="pwa.js"></script>
+<script defer src="app.js"></script></head><body>
+<header><a class="logo" href="#" aria-label="PakAutoHub home"><span class="logo-icon">P<span>↗</span></span>PakAuto<span>Hub</span><small>PAKISTAN</small></a><nav aria-label="Main navigation"><a href="#catalogue" class="active">Explore cars</a><a href="#budgetPlanner">Budget finder</a><button id="navCompare">Compare <span id="compareCount">0</span></button><button id="savedNav">♡ Saved <span id="savedCount">0</span></button></nav><div class="header-tools"><span id="connectionStatus" class="connection-status" role="status">Online</span><button class="install-button" data-install><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg><span>Install app</span></button></div></header>
+<main><section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span> YOUR NEXT CHAPTER, ON FOUR WHEELS</div><h1>A better way to<br>find your <em>next drive.</em></h1><p>A new hatchback or a pre-owned sedan?<br>Find what your budget can really buy.</p><a class="primary" href="#catalogue">Explore the catalogue <span>↗</span></a><div class="hero-stats"><div><strong>19</strong><span>New & used entries</span></div><div><strong>31</strong><span>Variants to explore</span></div><div><strong>PKR</strong><span>Local pricing</span></div></div></div><div class="hero-visual"><div class="round"></div><span class="backtype">SWIFT</span><img src="cars/swift.png" alt="Red Suzuki Swift" fetchpriority="high"><div class="feature-label"><span>THE CITY, REIMAGINED</span><strong>Suzuki Swift</strong><button data-detail="suzuki-swift">Discover the model ↗</button></div><span class="edition">THE PAKISTAN COLLECTION / 01</span></div></section>
+
+<section class="app-banner" id="appBanner" aria-labelledby="appBannerTitle">
+  <img src="icons/icon-192.png" alt="" width="58" height="58">
+  <div class="app-banner-copy"><h2 id="appBannerTitle">Your next drive, in your pocket.</h2><p>Add PakAutoHub to your phone. Compare cars and plan your budget, even offline.</p></div>
+  <div class="app-banner-actions"><button class="primary" data-install>Install app <span aria-hidden="true">↗</span></button><button class="text-button" data-install-help>How to install</button></div>
+</section>
+<section class="budget-planner" id="budgetPlanner"><div class="planner-intro"><div class="eyebrow">NEW OR USED? LET’S WORK IT OUT.</div><h2>Your budget.<br>Your kind of car.</h2><p>30 lakh mein new ya used?<br>Compare the purchase price and the money you’ll need to keep aside.</p><button class="preset" id="example30">Try the 30-lakh comparison ↗</button></div><div class="planner-main"><div class="planner-inputs"><label>Total budget <span>PKR lakh</span><input id="totalBudget" required type="number" value="30" min="1" max="1000" step="0.5"></label><label>My priority<select id="priority"><option value="family">Family / sedan space</option><option value="city">City / hatchback size</option><option value="new">Prefer a new car</option><option value="budget">Lowest purchase outlay</option></select></label><label>Transaction allowance <span>lakh / car</span><input id="fees" required type="number" value="0.5" min="0" max="100" step="0.1"></label><label>Used-car repair reserve <span>lakh / car</span><input id="reserve" required type="number" value="2" min="0" max="100" step="0.5"></label></div><p class="input-help">Allowances are editable planning assumptions, not registration quotes or predicted repair bills. Used prices vary by city and condition.</p><button id="findBudget" class="primary">Find my options ↗</button><div id="budgetResults" aria-live="polite"></div></div></section><section class="catalogue" id="catalogue"><div class="section-heading"><div><div class="eyebrow">FIND WHAT MOVES YOU</div><h2>Explore the lineup<span>.</span></h2></div><p>One place. All the details that matter.</p></div><div class="brand-tabs" role="tablist" aria-label="Car company" id="brandTabs"></div><div class="searchbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search a brand or model…" aria-label="Search cars"></label><label>Condition<select id="condition"><option value="">New + used</option><option value="new">New cars</option><option value="used">Used cars</option></select></label><label>Purchase budget (lakh)<input id="budget" type="number" min="0" max="1000" step="0.5" placeholder="Any budget"></label><label>Sort by<select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A–Z</option></select></label></div><div class="catalogue-toolbar"><div class="tabs" aria-label="Body type"><button class="selected" data-body="">All cars</button><button data-body="Hatchback">Hatchbacks</button><button data-body="Sedan">Sedans</button><button data-body="Crossover">Crossovers</button><button data-body="MPV">MPVs</button></div><div class="year-filter"><label for="year">Model year</label><select id="year"><option value="">All years</option></select><span id="resultCount" aria-live="polite"></span></div></div><div id="savedNotice" hidden>Showing your saved cars on this browser. <button id="showAll">Show all cars</button></div><div class="grid" id="cars"><p>Loading catalogue…</p></div><p class="pricing-note">New prices: dated manufacturer snapshots. Used prices: linked asking-price samples, not guaranteed valuations or live inventory. Budget filters use the lowest purchase price, before allowances; use the budget finder for total cost.</p></section>
+<section class="confidence"><div><span class="number">01 /</span><h3>The right model imagery</h3><p>Manufacturer and representative listing photographs, with model year, source and trim differences clearly noted.</p></div><div><span class="number">02 /</span><h3>Details you can trace</h3><p>View source links and the recorded date alongside each variant’s price and specifications.</p></div><div><span class="number">03 /</span><h3>Compare with clarity</h3><p>Compare up to three new or used cars. Adjust asking prices, reserves and fuel assumptions to match your situation.</p></div></section></main><footer><a class="logo" href="#">PakAuto<span>Hub</span></a><p>A university project by Aaiez · Built for the road ahead.</p><button data-install-help>Get the phone app ↗</button><button id="aboutBtn">About the catalogue ↗</button></footer><div id="compareTray" hidden><span id="trayText"></span><button id="clearCompare">Clear</button><button class="primary" id="openCompare">Compare cars ↗</button></div><dialog id="modal"><div class="modal-top"><span>PAKAUTOHUB / EXPLORE</span><button id="closeModal" aria-label="Close dialog">✕</button></div><div id="modalContent"></div></dialog><div id="toast" role="status"></div>
+<nav class="mobile-nav" aria-label="Phone navigation">
+  <a href="#catalogue" id="mobileCars" data-app-nav="cars" class="selected" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 8 2-4h10l2 4M4 9h16v9H4zM6 18v3m12-3v3M7 13h2m6 0h2"/></svg><span>Cars</span></a>
+  <a href="#budgetPlanner" id="mobileBudget" data-app-nav="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 4h2m4 0h2"/></svg><span>Budget</span></a>
+  <button id="mobileSaved" data-app-nav="saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 4c-3-3-7 0-8 2-1-2-5-5-8-2-5 5 2 11 8 16 6-5 13-11 8-16z"/></svg><span>Saved</span><span id="mobileSavedCount" class="nav-count" hidden>0</span></button>
+  <button id="mobileCompare" data-app-nav="compare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3v18m8-18v18M4 8h8m0 8h8M5 5 2 8l3 3m14 2 3 3-3 3"/></svg><span>Compare</span><span id="mobileCompareCount" class="nav-count" hidden>0</span></button>
+</nav>
+<dialog id="installDialog" class="install-dialog" aria-labelledby="installTitle">
+  <div class="modal-top"><span>PAKAUTOHUB / ON YOUR PHONE</span><button id="closeInstall" aria-label="Close installation guide">✕</button></div>
+  <div class="install-dialog-heading"><img src="icons/icon-192.png" alt="" width="64" height="64"><div><h2 id="installTitle">Take the app with you.</h2><p>One icon. Your cars, your budget.</p></div></div>
+  <div class="install-platforms" role="group" aria-label="Your phone"><button data-install-platform="android" aria-pressed="false">Android</button><button data-install-platform="ios" aria-pressed="false">iPhone</button></div>
+  <ol id="installSteps" class="install-steps"></ol>
+  <p id="installTip" class="install-tip"></p>
+  <div class="offline-info"><strong id="offlineHeading">Offline catalogue</strong><p id="offlineDescription" role="status">Open once with internet to save the catalogue on this device.</p></div>
+</dialog>
+<div id="updateBanner" class="update-banner" role="status" hidden><span>A new app version is ready.</span><button id="applyUpdate">Refresh</button></div>
+</body></html>

@@ -1,0 +1,23 @@
+{
+  "id": "./",
+  "name": "PakAutoHub — Cars & Budget",
+  "short_name": "PakAutoHub",
+  "description": "Explore new and used cars in Pakistan, compare your shortlist and plan your car budget.",
+  "lang": "en-PK",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8faf6",
+  "theme_color": "#145a46",
+  "categories": ["shopping", "lifestyle"],
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Explore cars", "short_name": "Cars", "url": "./#catalogue" },
+    { "name": "Find cars in my budget", "short_name": "Budget", "url": "./#budgetPlanner" }
+  ]
+}
