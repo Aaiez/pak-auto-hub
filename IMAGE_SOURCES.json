@@ -1,0 +1,154 @@
+[
+  {
+    "car": "Suzuki Swift",
+    "year": 2026,
+    "image": "cars/swift.png",
+    "included_locally": true,
+    "source": "https://suzukipakistan.com/api/media/file/phoenix-red-img.png",
+    "caption": "Official Suzuki Swift model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Suzuki Alto",
+    "year": 2026,
+    "image": "cars/alto.png",
+    "included_locally": true,
+    "source": "https://suzukipakistan.com/api/media/file/Studio%20Session-410Base%20%281%29.png",
+    "caption": "Official Suzuki Alto model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Suzuki Cultus",
+    "year": 2026,
+    "image": "cars/cultus.png",
+    "included_locally": true,
+    "source": "https://suzukipakistan.com/api/media/file/1-Cultus.png",
+    "caption": "Official Suzuki Cultus model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Suzuki Every",
+    "year": 2026,
+    "image": "cars/every.png",
+    "included_locally": true,
+    "source": "https://suzukipakistan.com/api/media/file/Group_316219-removebg-preview.png",
+    "caption": "Official Suzuki Every model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Suzuki Fronx",
+    "year": 2026,
+    "image": "cars/fronx.png",
+    "included_locally": true,
+    "source": "https://suzukipakistan.com/api/media/file/Jungle%20Green.png",
+    "caption": "Official Suzuki Fronx model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Honda City",
+    "year": 2026,
+    "image": "cars/city.webp",
+    "included_locally": true,
+    "source": "https://honda.com.pk/hero/city1-2-main.webp",
+    "caption": "Official Honda City model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Honda Civic",
+    "year": 2026,
+    "image": "cars/civic-oriel.webp",
+    "included_locally": true,
+    "source": "https://honda.com.pk/images/2025/civic-oriel/oriel.webp",
+    "caption": "Official Honda Civic model image. Shared image; exact trim and colour may vary."
+  },
+  {
+    "car": "Honda City",
+    "year": 2013,
+    "image": "https://cache2.pakwheels.com/ad_pictures/1501/honda-city-i-vtec-2-2013-150165551.webp",
+    "included_locally": false,
+    "source": "https://cache2.pakwheels.com/ad_pictures/1501/honda-city-i-vtec-2-2013-150165551.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Toyota Corolla",
+    "year": 2010,
+    "image": "https://cache4.pakwheels.com/ad_pictures/1500/toyota-corolla-xli-vvti-2010-150058327.webp",
+    "included_locally": false,
+    "source": "https://cache4.pakwheels.com/ad_pictures/1500/toyota-corolla-xli-vvti-2010-150058327.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Honda Civic",
+    "year": 2010,
+    "image": "cars/civic-2010.jpg",
+    "included_locally": true,
+    "source": "https://d2nn1d293raok6.cloudfront.net/public/posts/bb4b7ce4b482/561722516_1308782984610980_3369653125444535696_n.jpg",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Toyota Passo",
+    "year": 2014,
+    "image": "cars/passo-2014.jpg",
+    "included_locally": true,
+    "source": "https://image-cdn.beforward.jp/large/201910/1492784/BG543523_fa2e1d.JPG",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Toyota Vitz",
+    "year": 2012,
+    "image": "https://www.pkmotors.com/public/uploads/allpictures/car-toyota-vitz-2012-hyderabad-24327-.jpg",
+    "included_locally": false,
+    "source": "https://www.pkmotors.com/public/uploads/allpictures/car-toyota-vitz-2012-hyderabad-24327-.jpg",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Suzuki Wagon R",
+    "year": 2018,
+    "image": "https://cache4.pakwheels.com/ad_pictures/1196/suzuki-wagon-r-vxl-2018-119612709.webp",
+    "included_locally": false,
+    "source": "https://cache4.pakwheels.com/ad_pictures/1196/suzuki-wagon-r-vxl-2018-119612709.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Suzuki Cultus",
+    "year": 2016,
+    "image": "https://cache1.pakwheels.com/ad_pictures/8172/suzuki-cultus-limited-edition-2-2016-81722582.webp",
+    "included_locally": false,
+    "source": "https://cache1.pakwheels.com/ad_pictures/8172/suzuki-cultus-limited-edition-2-2016-81722582.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Hyundai Santro",
+    "year": 2006,
+    "image": "https://cache3.pakwheels.com/ad_pictures/1515/hyundai-santro-club-2-2006-151512340.webp",
+    "included_locally": false,
+    "source": "https://cache3.pakwheels.com/ad_pictures/1515/hyundai-santro-club-2-2006-151512340.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Suzuki Mehran",
+    "year": 2016,
+    "image": "https://cache2.pakwheels.com/ad_pictures/1530/suzuki-mehran-vxr-euro-ii-2016-153042826.webp",
+    "included_locally": false,
+    "source": "https://cache2.pakwheels.com/ad_pictures/1530/suzuki-mehran-vxr-euro-ii-2016-153042826.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Suzuki Swift",
+    "year": 2013,
+    "image": "https://cache3.pakwheels.com/ad_pictures/8051/suzuki-swift-1-3l-dlx-2013-80513568.webp",
+    "included_locally": false,
+    "source": "https://cache3.pakwheels.com/ad_pictures/8051/suzuki-swift-1-3l-dlx-2013-80513568.webp",
+    "caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here."
+  },
+  {
+    "car": "Toyota Yaris",
+    "year": 2026,
+    "image": "cars/yaris.png",
+    "included_locally": true,
+    "source": "https://toyota-indus.com/wp-content/uploads/2024/05/Attitude-Black.png",
+    "caption": "Official Toyota model image; the pictured trim may differ from the entry starting price."
+  },
+  {
+    "car": "Toyota Corolla",
+    "year": 2026,
+    "image": "cars/corolla.png",
+    "included_locally": true,
+    "source": "https://toyota-indus.com/wp-content/uploads/2022/10/corolla-x.png",
+    "caption": "Official Toyota model image; the pictured trim may differ from the entry starting price."
+  }
+]
