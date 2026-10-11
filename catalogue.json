@@ -1,0 +1,1210 @@
+{
+  "cars": [
+    {
+      "name": "Swift",
+      "slug": "suzuki-swift",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "current",
+      "image": "cars/swift.png",
+      "source": "https://suzukipakistan.com/api/media/file/Swift%20Brochure.pdf",
+      "description": "A compact hatchback with a 1.2-litre VVT engine, manual and CVT options. Pakistan specifications are taken from the official Suzuki brochure.",
+      "specs": {
+        "Length": "3,845 mm",
+        "Width": "1,735 mm",
+        "Height": "1,520 mm",
+        "Wheelbase": "2,450 mm",
+        "Ground clearance": "160 mm",
+        "Fuel tank": "37 L",
+        "Seating capacity": "5",
+        "Boot space": "265 L",
+        "Power": "61 kW at 6,000 rpm",
+        "Torque": "113 Nm at 4,200 rpm",
+        "Tyres": "185/55 R16",
+        "ABS / EBD": "Standard",
+        "Airbags": "6",
+        "ESP": "Standard"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://suzukipakistan.com/api/media/file/phoenix-red-img.png",
+      "image_caption": "Official Suzuki Swift model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "GL",
+          "price": 4460160,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,197 cc \u00b7 K12M",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Cruise control": "Not equipped",
+            "Rear camera": "Not equipped",
+            "Climate control": "Manual",
+            "Push start": "Not equipped",
+            "Curb weight": "865 kg"
+          }
+        },
+        {
+          "name": "GL CVT",
+          "price": 4605600,
+          "transmission": "CVT",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,197 cc \u00b7 K12M",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Cruise control": "Not equipped",
+            "Rear camera": "Not equipped",
+            "Climate control": "Manual",
+            "Push start": "Not equipped",
+            "Curb weight": "895 kg"
+          }
+        },
+        {
+          "name": "GLX CVT",
+          "price": 4766190,
+          "transmission": "CVT",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,197 cc \u00b7 K12M",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Cruise control": "Standard",
+            "Rear camera": "Standard",
+            "Climate control": "Automatic",
+            "Push start": "Standard",
+            "Curb weight": "905 kg"
+          }
+        },
+        {
+          "name": "GLX CVT Two Tone",
+          "price": 4766190,
+          "transmission": "CVT",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,197 cc \u00b7 K12M",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Cruise control": "Standard",
+            "Rear camera": "Standard",
+            "Climate control": "Automatic",
+            "Push start": "Standard",
+            "Curb weight": "905 kg"
+          }
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://suzukipakistan.com/all-prices"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "Alto",
+      "slug": "suzuki-alto",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "current",
+      "image": "cars/alto.png",
+      "source": "https://suzukipakistan.com/api/media/file/All%20New%20Alto.pdf",
+      "description": "A compact city car with manual and Auto Gear Shift options. Safety and comfort equipment is sourced from the Pakistan model page.",
+      "specs": {
+        "Airbags": "2",
+        "ABS": "Standard",
+        "ISOFIX": "Standard",
+        "Air conditioning": "Standard",
+        "Power windows": "Front and rear",
+        "Fuel tank": "27 L",
+        "Ground clearance": "170 mm",
+        "Length": "3,395 mm",
+        "Width": "1,475 mm",
+        "Height": "1,490 mm",
+        "Wheelbase": "2,460 mm",
+        "Seating capacity": "4",
+        "Boot space": "125 L (rear seats raised)",
+        "Power": "29 kW at 6,500 rpm",
+        "Torque": "56 Nm at 4,000 rpm",
+        "Tyres": "145/80 R13"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://suzukipakistan.com/api/media/file/Studio%20Session-410Base%20%281%29.png",
+      "image_caption": "Official Suzuki Alto model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "VXR",
+          "price": 2994861,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "658 cc \u00b7 R06A",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Audio": "2-DIN",
+            "Hill hold": "Not equipped"
+          }
+        },
+        {
+          "name": "VXR AGS",
+          "price": 3166480,
+          "transmission": "AGS",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "658 cc \u00b7 R06A",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Audio": "2-DIN",
+            "Hill hold": "Standard (brochure)"
+          }
+        },
+        {
+          "name": "VXL AGS",
+          "price": 3326446,
+          "transmission": "AGS",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "658 cc \u00b7 R06A",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Audio": "Touch screen",
+            "Hill hold": "Standard (brochure)"
+          }
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://suzukipakistan.com/all-prices"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "Cultus",
+      "slug": "suzuki-cultus",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "current",
+      "image": "cars/cultus.png",
+      "source": "https://suzukipakistan.com/api/media/file/Cultus.pdf",
+      "description": "A Pakistan-market hatchback offered in VXR, VXL and VXL AGS variants. Equipment differences are recorded by variant.",
+      "specs": {
+        "Airbags": "2",
+        "ABS": "Standard",
+        "ISOFIX": "Standard",
+        "Power steering": "Standard",
+        "Power windows": "Front and rear",
+        "Fuel tank": "35 L",
+        "Power": "50 kW at 6,000 rpm",
+        "Ground clearance": "145 mm",
+        "Length": "3,600 mm",
+        "Width": "1,600 mm",
+        "Height": "1,540 mm",
+        "Wheelbase": "2,425 mm",
+        "Seating capacity": "5",
+        "Boot space": "254 L",
+        "Torque": "90 Nm at 3,500 rpm",
+        "Tyres": "165/65 R14"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://suzukipakistan.com/api/media/file/1-Cultus.png",
+      "image_caption": "Official Suzuki Cultus model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "VXR",
+          "price": 4089490,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "998 cc \u00b7 K10B",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Fog lamps": "Not equipped",
+            "Side mirror adjustment": "Manual"
+          }
+        },
+        {
+          "name": "VXL",
+          "price": 4359160,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "998 cc \u00b7 K10B",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Fog lamps": "Standard",
+            "Side mirror adjustment": "Electric"
+          }
+        },
+        {
+          "name": "VXL AGS",
+          "price": 4591460,
+          "transmission": "AGS",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "998 cc \u00b7 K10B",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Fog lamps": "Standard",
+            "Side mirror adjustment": "Electric"
+          }
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://suzukipakistan.com/all-prices"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "Every",
+      "slug": "suzuki-every",
+      "brand": "Suzuki",
+      "body": "MPV",
+      "status": "current",
+      "image": "cars/every.png",
+      "source": "https://suzukipakistan.com/api/media/file/Every%20Brochure-1.pdf",
+      "description": "A practical compact vehicle with a five-speed manual gearbox and folding seats. Current VXR equipment is sourced from Suzuki Pakistan.",
+      "specs": {
+        "Airbags": "2",
+        "ABS / EBD": "Standard",
+        "Rear wiper": "Standard",
+        "Air conditioning": "Standard",
+        "Front power windows": "Standard",
+        "Immobilizer": "Standard",
+        "Fuel tank": "37 L",
+        "Ground clearance": "150 mm",
+        "Length": "3,395 mm",
+        "Width": "1,475 mm",
+        "Height": "1,895 mm",
+        "Wheelbase": "2,430 mm",
+        "Seating capacity": "4",
+        "Power": "32 kW at 5,700 rpm",
+        "Torque": "58 Nm at 3,800 rpm",
+        "Tyres": "145 R12C 86/84 S",
+        "Curb weight": "900 kg (VXR)"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://suzukipakistan.com/api/media/file/Group_316219-removebg-preview.png",
+      "image_caption": "Official Suzuki Every model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "VXR",
+          "price": 2965200,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "658 cc \u00b7 R06A",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {}
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://suzukipakistan.com/all-prices"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "Fronx",
+      "slug": "suzuki-fronx",
+      "brand": "Suzuki",
+      "body": "Crossover",
+      "status": "current",
+      "image": "cars/fronx.png",
+      "source": "https://suzukipakistan.com/api/media/file/Fronx%20Brochure%2017%20Sept%2026%20LR.pdf",
+      "description": "A crossover offered in manual, automatic and hybrid-labelled GLX variants. Introductory manufacturer prices can change without notice.",
+      "specs": {
+        "ABS / EBD": "Standard",
+        "ESP": "Standard",
+        "Rear AC vents": "Standard",
+        "Rear camera": "Standard",
+        "Hill hold": "Standard",
+        "Fuel tank": "37 L",
+        "Ground clearance": "170 mm",
+        "Length": "3,995 mm",
+        "Width": "1,765 mm",
+        "Height": "1,550 mm",
+        "Wheelbase": "2,520 mm",
+        "Seating capacity": "5",
+        "Boot space": "304 L",
+        "Tyres": "195/60 R16",
+        "Airbags": "6"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://suzukipakistan.com/api/media/file/Jungle%20Green.png",
+      "image_caption": "Official Suzuki Fronx model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "GL 5MT",
+          "price": 5999999,
+          "transmission": "5-speed manual",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15B",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "7-inch",
+            "Push start": "Not equipped",
+            "Autonomous emergency brake": "Not equipped",
+            "Blind spot warning": "Not equipped",
+            "Head-up display": "Not equipped",
+            "Power": "77 kW at 6,000 rpm",
+            "Torque": "138 Nm at 4,400 rpm"
+          }
+        },
+        {
+          "name": "GL 4AT",
+          "price": 6099999,
+          "transmission": "4-speed automatic",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15B",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "7-inch",
+            "Push start": "Not equipped",
+            "Autonomous emergency brake": "Not equipped",
+            "Blind spot warning": "Not equipped",
+            "Head-up display": "Not equipped",
+            "Power": "77 kW at 6,000 rpm",
+            "Torque": "138 Nm at 4,400 rpm"
+          }
+        },
+        {
+          "name": "GLX 6AT HYBRID Mono-Tone",
+          "price": 6399999,
+          "transmission": "6-speed automatic",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15C",
+          "fuel": "Petrol hybrid",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "9-inch",
+            "Push start": "Standard",
+            "Autonomous emergency brake": "Not equipped",
+            "Blind spot warning": "Not equipped",
+            "Head-up display": "Not equipped",
+            "Power": "74 kW at 6,000 rpm",
+            "Torque": "135 Nm at 4,400 rpm"
+          }
+        },
+        {
+          "name": "GLX 6AT HYBRID Two-Tone",
+          "price": 6474999,
+          "transmission": "6-speed automatic",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15C",
+          "fuel": "Petrol hybrid",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "9-inch",
+            "Push start": "Standard",
+            "Autonomous emergency brake": "Not equipped",
+            "Blind spot warning": "Not equipped",
+            "Head-up display": "Not equipped",
+            "Power": "74 kW at 6,000 rpm",
+            "Torque": "135 Nm at 4,400 rpm"
+          }
+        },
+        {
+          "name": "GLX 6AT HYBRID ADAS Mono-Tone",
+          "price": 6799999,
+          "transmission": "6-speed automatic",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15C",
+          "fuel": "Petrol hybrid",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "9-inch",
+            "Push start": "Standard",
+            "Autonomous emergency brake": "Standard",
+            "Blind spot warning": "Standard",
+            "Head-up display": "Standard",
+            "Power": "74 kW at 6,000 rpm",
+            "Torque": "135 Nm at 4,400 rpm"
+          }
+        },
+        {
+          "name": "GLX 6AT HYBRID ADAS Two-Tone",
+          "price": 6874999,
+          "transmission": "6-speed automatic",
+          "source": "https://suzukipakistan.com/all-prices",
+          "engine": "1,462 cc \u00b7 K15C",
+          "fuel": "Petrol hybrid",
+          "checked": "2026-10-10",
+          "price_status": "verified",
+          "specs": {
+            "Infotainment": "9-inch",
+            "Push start": "Standard",
+            "Autonomous emergency brake": "Standard",
+            "Blind spot warning": "Standard",
+            "Head-up display": "Standard",
+            "Power": "74 kW at 6,000 rpm",
+            "Torque": "135 Nm at 4,400 rpm"
+          }
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://suzukipakistan.com/all-prices"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "City",
+      "slug": "honda-city",
+      "brand": "Honda",
+      "body": "Sedan",
+      "status": "current",
+      "image": "cars/city.webp",
+      "source": "https://www.honda.com.pk/city1-2l",
+      "description": "The Pakistan-market City 1.2LS uses an i-VTEC petrol engine with CVT. This record covers the exact 1.2LS variant, not Aspire variants.",
+      "specs": {
+        "Length": "4,451 mm",
+        "Width": "1,694 mm",
+        "Height": "1,498 mm",
+        "Wheelbase": "2,600 mm",
+        "Ground clearance": "172 mm (to exhaust pipe)",
+        "Seating capacity": "5",
+        "Boot space": "510 L",
+        "Fuel tank": "40 L",
+        "Power": "66 kW at 6,000 rpm",
+        "Torque": "110 Nm at 4,800 rpm",
+        "Tyres": "175/65 R15",
+        "Airbags": "2",
+        "ABS / EBD": "Standard"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://honda.com.pk/hero/city1-2-main.webp",
+      "image_caption": "Official Honda City model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "1.2LS",
+          "price": 4737000,
+          "transmission": "CVT",
+          "source": "https://www.honda.com.pk/city1-2l",
+          "engine": "1,199 cc \u00b7 SOHC i-VTEC",
+          "fuel": "Petrol",
+          "checked": "2026-10-05",
+          "price_status": "verified",
+          "specs": {}
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://www.honda.com.pk/city1-2l"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "Civic",
+      "slug": "honda-civic",
+      "brand": "Honda",
+      "body": "Sedan",
+      "status": "current",
+      "image": "cars/civic-oriel.webp",
+      "source": "https://honda.com.pk/flipbook/pdf/Civic26-Brochure.pdf",
+      "description": "Honda Civic Oriel in Pakistan. The official Oriel page is used for its listed price and variant-specific equipment.",
+      "specs": {
+        "Driver information display": "7-inch TFT",
+        "Push start": "Standard",
+        "Air conditioning": "Dual Auto AC",
+        "USB port": "Standard",
+        "Power": "95 kW (127 hp) at 5,500\u20136,000 rpm",
+        "Torque": "180 Nm at 1,700\u20134,500 rpm",
+        "Fuel tank": "47 L",
+        "Ground clearance": "154 mm",
+        "Length": "4,695 mm",
+        "Width": "1,802 mm",
+        "Height": "1,432 mm",
+        "Wheelbase": "2,735 mm",
+        "Seating capacity": "5",
+        "Boot space": "409 L",
+        "Airbags": "2",
+        "ABS / EBD": "Standard"
+      },
+      "checked": "2026-10-05",
+      "image_source": "https://honda.com.pk/images/2025/civic-oriel/oriel.webp",
+      "image_caption": "Official Honda Civic model image. Shared image; exact trim and colour may vary.",
+      "variants": [
+        {
+          "name": "Oriel 1.5 Turbo",
+          "price": 8834000,
+          "transmission": "CVT (M-CVT)",
+          "source": "https://honda.com.pk/civic-oriel-1-5",
+          "engine": "1,498 cc \u00b7 Turbo",
+          "fuel": "Petrol",
+          "checked": "2026-10-05",
+          "price_status": "verified",
+          "specs": {}
+        }
+      ],
+      "condition": "new",
+      "year": 2026,
+      "price_basis": "Manufacturer-listed base price",
+      "market": "Pakistan",
+      "sources": [
+        {
+          "label": "Manufacturer price page",
+          "url": "https://honda.com.pk/civic-oriel-1-5"
+        }
+      ],
+      "advice": {
+        "strength": "New-car option with a known starting price and no previous-owner history.",
+        "check": "Confirm delivery, registration, taxes and written warranty terms with the dealer."
+      },
+      "photo_kind": "Manufacturer model image"
+    },
+    {
+      "name": "City",
+      "slug": "honda-city-2013",
+      "brand": "Honda",
+      "body": "Sedan",
+      "status": "used",
+      "condition": "used",
+      "year": 2013,
+      "market": "Rawalpindi \u00b7 2 example ads",
+      "image": "https://cache2.pakwheels.com/ad_pictures/1501/honda-city-i-vtec-2-2013-150165551.webp",
+      "image_source": "https://cache2.pakwheels.com/ad_pictures/1501/honda-city-i-vtec-2-2013-150165551.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/honda-city-2013-for-sale-in-rawalpindi-11891614",
+      "sources": [
+        {
+          "label": "Example asking price: 28.75 lakh",
+          "url": "https://www.pakwheels.com/used-cars/honda-city-2013-for-sale-in-rawalpindi-11891614"
+        },
+        {
+          "label": "Example asking price: 29 lakh",
+          "url": "https://www.pakwheels.com/used-cars/honda-city-2013-for-sale-in-rawalpindi-11915689"
+        }
+      ],
+      "description": "2013 Honda City. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "A sedan alternative to a new small hatchback for buyers who want a separate luggage compartment.",
+        "check": "Check suspension, AC, service records and accident repairs; leave room for initial maintenance."
+      },
+      "variants": [
+        {
+          "name": "1.3 i-VTEC manual",
+          "price": 2875000,
+          "price_max": 2900000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/honda-city-2013-for-sale-in-rawalpindi-11891614",
+          "engine": "1,300 cc (listing)",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Corolla",
+      "slug": "toyota-corolla-2010",
+      "brand": "Toyota",
+      "body": "Sedan",
+      "status": "used",
+      "condition": "used",
+      "year": 2010,
+      "market": "Islamabad \u00b7 sampled ads",
+      "image": "https://cache4.pakwheels.com/ad_pictures/1500/toyota-corolla-xli-vvti-2010-150058327.webp",
+      "image_source": "https://cache4.pakwheels.com/ad_pictures/1500/toyota-corolla-xli-vvti-2010-150058327.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/toyota-corolla-2010-for-sale-in-islamabad-11924273",
+      "sources": [
+        {
+          "label": "Example asking price: 23.5 lakh",
+          "url": "https://www.pakwheels.com/used-cars/toyota-corolla-2010-for-sale-in-islamabad-11924273"
+        },
+        {
+          "label": "Example asking price: 26 lakh",
+          "url": "https://www.pakwheels.com/used-cars/toyota-corolla-2010-for-sale-in-islamabad-11908612"
+        }
+      ],
+      "description": "2010 Toyota Corolla. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "A lower-purchase-price sedan option that can leave more budget for inspection and repairs.",
+        "check": "Check original XLi equipment; conversions to GLi do not establish factory safety features. Inspect chassis and suspension."
+      },
+      "variants": [
+        {
+          "name": "XLi VVTi manual",
+          "price": 2350000,
+          "price_max": 2600000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/toyota-corolla-2010-for-sale-in-islamabad-11924273",
+          "engine": "1,300 cc (listing)",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Civic",
+      "slug": "honda-civic-2010",
+      "brand": "Honda",
+      "body": "Sedan",
+      "status": "used",
+      "condition": "used",
+      "year": 2010,
+      "market": "Islamabad \u00b7 listing group",
+      "image": "cars/civic-2010.jpg",
+      "image_source": "https://d2nn1d293raok6.cloudfront.net/public/posts/bb4b7ce4b482/561722516_1308782984610980_3369653125444535696_n.jpg",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/honda-civic-vti-oriel-2010-islamabad/22289",
+      "sources": [
+        {
+          "label": "2010 VTi Oriel asking-price group",
+          "url": "https://www.pakwheels.com/used-cars/honda-civic-vti-oriel-2010-islamabad/22289"
+        }
+      ],
+      "description": "2010 Honda Civic. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "An older sedan alternative; compare the actual transmission and equipment before deciding.",
+        "check": "Check engine mounts, steering, cooling system, transmission and accident history; equipment alone cannot establish condition."
+      },
+      "variants": [
+        {
+          "name": "VTi Oriel \u00b7 mixed transmissions",
+          "price": 2430000,
+          "price_max": 3450000,
+          "transmission": "Manual / automatic",
+          "source": "https://www.pakwheels.com/used-cars/honda-civic-vti-oriel-2010-islamabad/22289",
+          "engine": "1.8 L \u00b7 confirm listing",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Passo",
+      "slug": "toyota-passo-2014",
+      "brand": "Toyota",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2014,
+      "market": "Islamabad \u00b7 listing group",
+      "image": "cars/passo-2014.jpg",
+      "image_source": "https://image-cdn.beforward.jp/large/201910/1492784/BG543523_fa2e1d.JPG",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/toyota-passo-2014-islamabad/58606",
+      "sources": [
+        {
+          "label": "2014 Passo asking-price group",
+          "url": "https://www.pakwheels.com/used-cars/toyota-passo-2014-islamabad/58606"
+        }
+      ],
+      "description": "2014 Toyota Passo. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "An imported hatchback option for buyers considering an older automatic.",
+        "check": "Verify import documents, auction history where available, transmission service and functioning airbags."
+      },
+      "variants": [
+        {
+          "name": "Mixed trims \u00b7 confirm specific car",
+          "price": 2625000,
+          "price_max": 3300000,
+          "transmission": "Automatic \u00b7 confirm type",
+          "source": "https://www.pakwheels.com/used-cars/toyota-passo-2014-islamabad/58606",
+          "engine": "Confirm specific trim",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Vitz",
+      "slug": "toyota-vitz-2012",
+      "brand": "Toyota",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2012,
+      "market": "Lahore \u00b7 listing group",
+      "image": "https://www.pkmotors.com/public/uploads/allpictures/car-toyota-vitz-2012-hyderabad-24327-.jpg",
+      "image_source": "https://www.pkmotors.com/public/uploads/allpictures/car-toyota-vitz-2012-hyderabad-24327-.jpg",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/toyota-vitz-2012-lahore/9073",
+      "sources": [
+        {
+          "label": "2012 Vitz asking-price group",
+          "url": "https://www.pakwheels.com/used-cars/toyota-vitz-2012-lahore/9073"
+        }
+      ],
+      "description": "2012 Toyota Vitz. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "An older imported hatchback alternative within the 30-lakh purchase bracket.",
+        "check": "Check engine size, transmission, import history and repair records; registration year can differ from manufacture year."
+      },
+      "variants": [
+        {
+          "name": "Mixed trims \u00b7 confirm specific car",
+          "price": 2399000,
+          "price_max": 2950000,
+          "transmission": "Automatic \u00b7 confirm type",
+          "source": "https://www.pakwheels.com/used-cars/toyota-vitz-2012-lahore/9073",
+          "engine": "Confirm specific trim",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Wagon R",
+      "slug": "suzuki-wagon-r-2018",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2018,
+      "market": "Lahore \u00b7 one example ad",
+      "image": "https://cache4.pakwheels.com/ad_pictures/1196/suzuki-wagon-r-vxl-2018-119612709.webp",
+      "image_source": "https://cache4.pakwheels.com/ad_pictures/1196/suzuki-wagon-r-vxl-2018-119612709.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/suzuki-wagon-r-2018-for-sale-in-lahore-12062521",
+      "sources": [
+        {
+          "label": "2018 VXL example asking price",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-wagon-r-2018-for-sale-in-lahore-12062521"
+        }
+      ],
+      "description": "2018 Suzuki Wagon R. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "A used local hatchback option with room in the budget below a new Alto base price.",
+        "check": "One advertisement is not a market valuation. Verify mileage, cooling, suspension and service history."
+      },
+      "variants": [
+        {
+          "name": "VXL manual \u00b7 sample asking price",
+          "price": 2200000,
+          "price_max": 2200000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/suzuki-wagon-r-2018-for-sale-in-lahore-12062521",
+          "engine": "1,000 cc (listing)",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Cultus",
+      "slug": "suzuki-cultus-2016",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2016,
+      "market": "Islamabad \u00b7 sampled ads",
+      "image": "https://cache1.pakwheels.com/ad_pictures/8172/suzuki-cultus-limited-edition-2-2016-81722582.webp",
+      "image_source": "https://cache1.pakwheels.com/ad_pictures/8172/suzuki-cultus-limited-edition-2-2016-81722582.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/suzuki-cultus-2016-for-sale-in-islamabad-12006857",
+      "sources": [
+        {
+          "label": "Example asking price: 16.5 lakh",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-cultus-2016-for-sale-in-islamabad-12006857"
+        },
+        {
+          "label": "Example asking price: 18.8 lakh",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-cultus-2016-for-sale-in-islamabad-11902435"
+        }
+      ],
+      "description": "2016 Suzuki Cultus. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "Lower purchase outlay than the new-generation Cultus; keeps more of your budget unspent.",
+        "check": "Do not confuse this old-shape car with the current Cultus. Inspect rust, AC and original equipment."
+      },
+      "variants": [
+        {
+          "name": "Euro II manual \u00b7 old shape",
+          "price": 1650000,
+          "price_max": 1880000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/suzuki-cultus-2016-for-sale-in-islamabad-12006857",
+          "engine": "1,000 cc (listing)",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Santro",
+      "slug": "hyundai-santro-2006",
+      "brand": "Hyundai",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2006,
+      "market": "Islamabad / Rawalpindi \u00b7 sampled ads",
+      "image": "https://cache3.pakwheels.com/ad_pictures/1515/hyundai-santro-club-2-2006-151512340.webp",
+      "image_source": "https://cache3.pakwheels.com/ad_pictures/1515/hyundai-santro-club-2-2006-151512340.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/hyundai-santro-2006-for-sale-in-rawalpindi-12094010",
+      "sources": [
+        {
+          "label": "Example asking price: 11.25 lakh",
+          "url": "https://www.pakwheels.com/used-cars/hyundai-santro-2006-for-sale-in-rawalpindi-12094010"
+        },
+        {
+          "label": "Example asking price: 13 lakh",
+          "url": "https://www.pakwheels.com/used-cars/hyundai-santro-2006-for-sale-in-rawalpindi-12080673"
+        }
+      ],
+      "description": "2006 Hyundai Santro. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "A lower-budget used hatchback that leaves funds for mechanical work if inspection supports buying it.",
+        "check": "Inspect cooling system, rust, AC, brakes and maintenance history. A 20-year-old car needs a condition-led decision."
+      },
+      "variants": [
+        {
+          "name": "Club manual \u00b7 sampled cars",
+          "price": 1125000,
+          "price_max": 1300000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/hyundai-santro-2006-for-sale-in-rawalpindi-12094010",
+          "engine": "1,000 cc (listing)",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Mehran",
+      "slug": "suzuki-mehran-2016",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2016,
+      "market": "Rawalpindi / Islamabad \u00b7 sampled ads",
+      "image": "https://cache2.pakwheels.com/ad_pictures/1530/suzuki-mehran-vxr-euro-ii-2016-153042826.webp",
+      "image_source": "https://cache2.pakwheels.com/ad_pictures/1530/suzuki-mehran-vxr-euro-ii-2016-153042826.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/suzuki-mehran-2016-for-sale-in-rawalpindi-12100031",
+      "sources": [
+        {
+          "label": "Example asking price: 11.3 lakh",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-mehran-2016-for-sale-in-rawalpindi-12100031"
+        },
+        {
+          "label": "Example asking price: 13 lakh",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-mehran-2016-for-sale-in-islamabad-12102617"
+        }
+      ],
+      "description": "2016 Suzuki Mehran. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "A low-purchase-price option; evaluate its comfort and equipment against newer alternatives.",
+        "check": "Inspect structure, rust, brakes and AC. Do not assume modern safety features are present."
+      },
+      "variants": [
+        {
+          "name": "VXR Euro II \u00b7 sampled cars",
+          "price": 1130000,
+          "price_max": 1300000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/suzuki-mehran-2016-for-sale-in-rawalpindi-12100031",
+          "engine": "796 cc",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Swift",
+      "slug": "suzuki-swift-2013",
+      "brand": "Suzuki",
+      "body": "Hatchback",
+      "status": "used",
+      "condition": "used",
+      "year": 2013,
+      "market": "Pakistan \u00b7 listing group",
+      "image": "https://cache3.pakwheels.com/ad_pictures/8051/suzuki-swift-1-3l-dlx-2013-80513568.webp",
+      "image_source": "https://cache3.pakwheels.com/ad_pictures/8051/suzuki-swift-1-3l-dlx-2013-80513568.webp",
+      "image_caption": "Representative photograph of this model year from a third-party listing; trim, colour and condition may differ. Not a vehicle offered for sale here.",
+      "photo_kind": "Representative used-car photo",
+      "source": "https://www.pakwheels.com/used-cars/suzuki-swift-dlx-2013/108817?transmission=manual",
+      "sources": [
+        {
+          "label": "2013 DLX manual asking-price group",
+          "url": "https://www.pakwheels.com/used-cars/suzuki-swift-dlx-2013/108817?transmission=manual"
+        }
+      ],
+      "description": "2013 Suzuki Swift. Used-car research entry, not a live seller advertisement. The displayed range comes from the linked asking-price examples or listing group; inspect the individual car before purchase.",
+      "specs": {
+        "Seating capacity": "5",
+        "Safety equipment": "Verify original trim and working equipment on the individual car"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Observed asking-price range \u2014 not a valuation",
+      "advice": {
+        "strength": "An older-generation hatchback alternative at a lower purchase price than a new Swift.",
+        "check": "Test AC, cooling, suspension and service history. Enter your own fuel-economy estimate in the comparison calculator."
+      },
+      "variants": [
+        {
+          "name": "DLX 1.3 manual \u00b7 mixed examples",
+          "price": 1690000,
+          "price_max": 2500000,
+          "transmission": "Manual",
+          "source": "https://www.pakwheels.com/used-cars/suzuki-swift-dlx-2013/108817?transmission=manual",
+          "engine": "1.3 L",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "asking_range",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Yaris",
+      "slug": "toyota-yaris",
+      "brand": "Toyota",
+      "body": "Sedan",
+      "status": "current",
+      "condition": "new",
+      "year": 2026,
+      "market": "Pakistan",
+      "image": "cars/yaris.png",
+      "image_source": "https://toyota-indus.com/wp-content/uploads/2024/05/Attitude-Black.png",
+      "image_caption": "Official Toyota model image; the pictured trim may differ from the entry starting price.",
+      "photo_kind": "Manufacturer model image",
+      "source": "https://toyota-indus.com/yaris/",
+      "sources": [
+        {
+          "label": "Toyota official showroom starting price",
+          "url": "https://toyota-indus.com/showroom/"
+        }
+      ],
+      "description": "Toyota Pakistan showroom starting-price entry. Confirm the exact variant, equipment, delivery and current written quotation with the dealer.",
+      "specs": {
+        "Seating capacity": "5",
+        "Equipment": "Confirm exact quoted variant"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Official showroom starting price",
+      "advice": {
+        "strength": "A new sedan option for a larger purchase budget.",
+        "check": "The starting price is not a fully equipped trim or on-road quotation; verify the exact dealer quote."
+      },
+      "variants": [
+        {
+          "name": "Showroom starting price \u00b7 confirm trim",
+          "price": 4649000,
+          "transmission": "5-speed manual \u00b7 confirm trim",
+          "source": "https://toyota-indus.com/showroom/",
+          "engine": "1.3 L \u00b7 confirm base trim",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "starting_price",
+          "specs": {}
+        }
+      ]
+    },
+    {
+      "name": "Corolla",
+      "slug": "toyota-corolla",
+      "brand": "Toyota",
+      "body": "Sedan",
+      "status": "current",
+      "condition": "new",
+      "year": 2026,
+      "market": "Pakistan",
+      "image": "cars/corolla.png",
+      "image_source": "https://toyota-indus.com/wp-content/uploads/2022/10/corolla-x.png",
+      "image_caption": "Official Toyota model image; the pictured trim may differ from the entry starting price.",
+      "photo_kind": "Manufacturer model image",
+      "source": "https://toyota-indus.com/showroom/",
+      "sources": [
+        {
+          "label": "Toyota official showroom starting price",
+          "url": "https://toyota-indus.com/showroom/"
+        }
+      ],
+      "description": "Toyota Pakistan showroom starting-price entry. Confirm the exact variant, equipment, delivery and current written quotation with the dealer.",
+      "specs": {
+        "Seating capacity": "5",
+        "Equipment": "Confirm exact quoted variant"
+      },
+      "checked": "2026-10-10",
+      "price_basis": "Official showroom starting price",
+      "advice": {
+        "strength": "A new sedan option for a larger purchase budget.",
+        "check": "The starting price is not a fully equipped trim or on-road quotation; verify the exact dealer quote."
+      },
+      "variants": [
+        {
+          "name": "Showroom starting price \u00b7 confirm trim",
+          "price": 6099000,
+          "transmission": "Confirm quoted variant",
+          "source": "https://toyota-indus.com/showroom/",
+          "engine": "Confirm quoted variant",
+          "fuel": "Petrol",
+          "checked": "2026-10-10",
+          "price_status": "starting_price",
+          "specs": {}
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "updated": "2026-10-10",
+    "used_price_method": "Linked asking-price examples or listing groups, not completed-sale values. Locations and sample scope shown per entry. Availability not verified.",
+    "new_price_method": "Suzuki and Toyota checked against linked manufacturer pages. Honda new-car entries retain the supplied 2026-10-05 snapshot.",
+    "calculator_method": "Budget and ownership outputs use editable planning inputs. Default used repair reserve 2 lakh and transaction allowance 0.5 lakh are scenario assumptions, not quotes or tax calculations."
+  }
+}

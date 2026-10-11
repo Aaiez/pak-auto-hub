@@ -14,7 +14,7 @@ def main():
     except ValueError:
         print("Use a port from 1 to 65535: python run_local.py 8001")
         return 1
-    folder = Path(__file__).resolve().parent / "dist"
+    folder = Path(__file__).resolve().parent
     handler = partial(SimpleHTTPRequestHandler, directory=str(folder))
     try:
         server = ThreadingHTTPServer(("127.0.0.1", port), handler)
